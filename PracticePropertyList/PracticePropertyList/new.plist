@@ -34,6 +34,18 @@
 			<key>Name</key>
 			<string>Michael</string>
 		</dict>
+		<dict>
+			<key>Score</key>
+			<string>22</string>
+			<key>Name</key>
+			<string>Sarin</string>
+		</dict>
+		<dict>
+			<key>Score</key>
+			<string>24</string>
+			<key>Name</key>
+			<string>Reee</string>
+		</dict>
 	</array>
 </dict>
 </plist>
