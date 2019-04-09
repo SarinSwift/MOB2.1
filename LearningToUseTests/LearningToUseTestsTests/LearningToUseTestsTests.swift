@@ -41,4 +41,29 @@ class LearningToUseTestsTests: XCTestCase {
 //        XCTAssertEqual("Practice Project", vc.title) // This would fail
         XCTAssertEqual("Testing With Swift!", vc.title) // This would pass becasue it matches the one we correctly created
     }
+    
+    func testTextfieldPlaceholder() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        vc.viewDidLoad()
+        
+        XCTAssertEqual("placeholder", vc.insertNumTextField.placeholder)
+    }
+    
+    func testNumOfVowels() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        vc.viewDidLoad()
+        
+        XCTAssertEqual(2, vc.vowelsInAString(string: "Sarin"))
+    }
+    
+    func testMakeTitle() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        vc.viewDidLoad()
+        
+        XCTAssertEqual("Sarin Liking Tests", vc.makeTitle(string: "Sarin liking tests"))
+    }
+
 }
