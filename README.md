@@ -57,6 +57,38 @@ The model should mainly contain
 -clear data method 
 
 
+## Keychain
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/LearningKeychains)  
+Is great for persisting(encrypting) sensitive data such as passwords, credit card info  
+Keychain provides easy access to encrypted data  
+What is it?  
+  An API that gives an app the ability to store user data in an encrypted database   
+  Items in the keychain are containers that is shared through the OS(operating system)  
+  
+**Pro's:**  
+  - Share keychain items between apps because items stored belongs to the OS  
+  - Items persist even when app is deleted  
+  - Do not need to call to backend just to simply get the password   
+  - Doesn't prompt the user everytime we need data (bad user experience)    
+  
+**Con's:**   
+  - Stores only simple key-value objects not complex ones  
+  - Deleting the app will not delete the data in keychain. Only clearing the keychain on developer side will
+
+**How does it work?**  
+&nbsp; Every item is composed of item(data we can not see), and attributes(things we call on to get to the actual data that is encrypted)  
+  
+**Keychain use case:**  
+&nbsp; Open the app -> looking for password -> authenticate when found -> success  
+  
+**Some terms:**
+  - SecKeychain (database)
+  - SecKeychainItem (item which is saved to the database)
+  - SecItemDelete (deleting an item)
+  - SecItemAdd (adding an item)
+
+
+
 # Tests
 [Project work](https://github.com/SarinSwift/MOB2.1/tree/master/LearningToUseTests)  
 **A software testing where individual units/components are tested to validate that each unit(method) performs as planned**  
