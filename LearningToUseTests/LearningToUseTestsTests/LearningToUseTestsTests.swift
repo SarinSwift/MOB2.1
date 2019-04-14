@@ -55,7 +55,7 @@ class LearningToUseTestsTests: XCTestCase {
         let vc = storyboard.instantiateInitialViewController() as! ViewController
         vc.viewDidLoad()
         
-        XCTAssertEqual(2, vc.vowelsInAString(string: "Sarin"))
+        XCTAssertEqual(2, vc.vowelsInAString(string: "SArIn"))
     }
     
     func testMakeTitle() {

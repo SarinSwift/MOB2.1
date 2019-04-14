@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // putting the vowels array in main class so we don't have to create a new array everytime we call vowelsInAString()
+    let vowels: [Character] = ["a", "e", "i", "o", "u"]
 
     @IBOutlet weak var insertNumTextField: UITextField!
     
@@ -23,26 +25,14 @@ class ViewController: UIViewController {
     }
 
     func vowelsInAString(string: String) -> Int {
-        let vowels: [Character] = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-        var numberOfVowels = 0
-        for char in string {
-            if vowels.contains(char) {
-                numberOfVowels += 1
-            }
-        }
-        return numberOfVowels
+        let onlyVowelsStr = string.lowercased().filter{ vowels.contains($0) }
+        return onlyVowelsStr.count
     }
     
     func makeTitle(string: String) -> String {
-        let words = string.components(separatedBy: " ")
-        var headline = ""
-        
-        for var word in words {
-            let firstChar = word.remove(at: word.startIndex)
-            headline += "\(String(firstChar).uppercased())\(word) "
-        }
-        headline.remove(at: headline.index(before: headline.endIndex))
-        return headline
+        let arrWords = string.split(separator: " ") // -> ["hello", "world"]
+        let capiArrWords = arrWords.map { $0.capitalized } // -> capitalizes only the first letter in each string
+        return capiArrWords.joined(separator: " ")
     }
 }
 
