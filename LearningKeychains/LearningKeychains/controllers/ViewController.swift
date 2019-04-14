@@ -33,8 +33,10 @@ class ViewController: UIViewController {
         keychain.set(saveMessageTextField.text ?? "", forKey: "message")
         currMessageTextView.text = keychain.get("message")
         
-        if keychain.synchronizable {
-            print("it's synchronizable")
+        if switchBtn.isOn {
+            keychain.synchronizable = true
+        } else {
+            keychain.synchronizable = false
         }
     }
     @IBAction func deleteBtnTapped(_ sender: UIButton) {
