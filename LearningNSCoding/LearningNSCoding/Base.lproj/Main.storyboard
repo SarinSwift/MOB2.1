@@ -76,15 +76,54 @@
                                 <rect key="frame" x="0.0" y="371.5" width="375" height="295.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d7h-vP-aDg">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="movieCellId" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCellId" rowHeight="81" id="d7h-vP-aDg" customClass="MovieCell" customModule="LearningNSCoding" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7h-vP-aDg" id="EeF-jk-jy7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7h-vP-aDg" id="EeF-jk-jy7" customClass="MovieCell" customModule="LearningNSCoding" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="cMr-6B-mLZ">
+                                                    <rect key="frame" x="43" y="30" width="289" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-hn-6Th">
+                                                            <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4T1-rN-PtZ">
+                                                            <rect key="frame" x="223.5" y="0.0" width="65.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cMr-6B-mLZ" firstAttribute="centerY" secondItem="EeF-jk-jy7" secondAttribute="centerY" id="2Ff-VX-8QM"/>
+                                                <constraint firstItem="cMr-6B-mLZ" firstAttribute="centerX" secondItem="EeF-jk-jy7" secondAttribute="centerX" id="tan-iW-6Ye"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="durationLabel" destination="4T1-rN-PtZ" id="KhF-tA-YFe"/>
+                                                <outlet property="titleLabel" destination="Xnk-hn-6Th" id="JIm-7W-kFp"/>
+                                            </connections>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="cMr-6B-mLZ" firstAttribute="centerX" secondItem="d7h-vP-aDg" secondAttribute="centerX" id="ogH-x9-iua"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="durationLabel" destination="4T1-rN-PtZ" id="TZd-Ue-AfL"/>
+                                            <outlet property="titleLabel" destination="Xnk-hn-6Th" id="YmP-ZK-o3J"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="w6u-hp-UEK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DMN-oq-DF7"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.082352941176470587" green="0.086274509803921567" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
