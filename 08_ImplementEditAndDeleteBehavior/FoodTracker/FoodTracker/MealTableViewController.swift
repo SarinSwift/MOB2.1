@@ -20,9 +20,16 @@ class MealTableViewController: UITableViewController {
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Loads any saved meals, otherwise load sample data
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        } else {
+            // Load the sample data.
+            loadSampleMeals()
+        }
 
-        // Load the sample data.
-        loadSampleMeals()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +82,7 @@ class MealTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
+            saveMeals()         // saves meals array when it's deleted
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -149,6 +157,9 @@ class MealTableViewController: UITableViewController {
                 meals.append(meal)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            
+            // Saves the meals array whether added a new meal or updated one
+            saveMeals()
         }
     }
     
@@ -174,5 +185,20 @@ class MealTableViewController: UITableViewController {
 
         meals += [meal1, meal2, meal3]
     }
+    
+    private func saveMeals() {
+        // archive the meals array and returns true if saved successfully
+        let isSuccesfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        
+        if isSuccesfulSave {
+            os_log("Meals successfully saved", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        }
+    }
 
+    private func loadMeals() -> [Meal]? {
+        // attempts to unarchive the objects stored at the path and downcasts it to an array of Meal objects
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    }
 }
