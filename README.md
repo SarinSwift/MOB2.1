@@ -86,6 +86,31 @@ What is it?
   - SecKeychainItem (item which is saved to the database)
   - SecItemDelete (deleting an item)
   - SecItemAdd (adding an item)
+  
+  
+## CoreData
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/FriendsCoreData)  
+CoreData is not a DataBase but a persistence framework  
+
+**The core data stack**  
+Contains 3 tools:  
+1. Managed Object Model  
+2. Persistece Store Coordinator  
+3. Managed Object Context  
+
+Manages:  
+Persistence,  
+Background data tasks,  
+View synchronizations (in charge of letting views and data be in synch with addition or deletions)
+
+**Core data components**  
+1. Object graph: Abstract structure that can be used to describe an app's state at a particular part in time.  
+2. NSManagedObject: Contains the entity description  
+3. NSManagedObjectContext: This contains many NSManagedObjects. You MUST create / instantiate this NSManagedObjectContext before you are able to use any CoreData functionality (save / fetch / delete data)  
+4. NSPersistentStoreCoordinator: Coordinates between NSManagedObject and the Store   
+5. NSPersistentStore: Maps between records in the store and objects in your app   
+6. NSManagedObjectModel: Describes all NSManagedObjects  
+7. NSPersistentContainer: Encapsulates entire coredata stack (biggest picture)
 
 
 
