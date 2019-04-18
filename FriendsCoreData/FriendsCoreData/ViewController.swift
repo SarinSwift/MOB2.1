@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         fetch()
     }
 
@@ -36,7 +41,8 @@ class ViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
-        alert.addTextField()
+        alert.addTextField()    // for the name
+//        alert.addTextField()    // for the age
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
@@ -79,13 +85,18 @@ class ViewController: UIViewController {
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: "Person")
         
-        // 
+        
         do {
             people = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
+    }
+    
+    func delete() {
+        // delete at that instance from coredata
+//        let personToDelete = people.
     }
     
 }
@@ -103,4 +114,33 @@ extension ViewController: UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let personToDelete = people[indexPath.row]
+        
+        if editingStyle == .delete {
+            managedContext.delete(personToDelete)
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Error while deleting person: \(error.userInfo)")
+            }
+        }
+        
+        // fetch new data / reload table
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        
+        do {
+            people = try managedContext.fetch(fetchRequest) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Error while fetching data from coredata: \(error.userInfo)")
+        }
+        
+        tableView.reloadData()
+    }
+    
 }
