@@ -59,6 +59,7 @@ class ViewController: UIViewController {
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    fetchedResultsController.delegate = self
     
     // fetching as the screen loads
     do {
@@ -125,6 +126,36 @@ extension ViewController: UITableViewDelegate {
     let team = fetchedResultsController.object(at: indexPath)
     team.wins = team.wins + 1
     coreDataStack.saveContext()
-    tableView.reloadData()
+  }
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+extension ViewController: NSFetchedResultsControllerDelegate {
+  
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    self.tableView.beginUpdates()
+  }
+  
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    
+    // NSFetchedResultsChangeType is an enum which has 4 different cases
+    // make sure when you're inserting and deleting from the table viw, you want to use the right indexPath/newIndexPath or else runtime errors will occur!!
+    switch type {
+    case .insert:
+      tableView.insertRows(at: [newIndexPath!], with: .automatic)
+    case .delete:
+      tableView.deleteRows(at: [indexPath!], with: .automatic)
+    case .update:
+      let cell = tableView.cellForRow(at: indexPath!) as! TeamCell
+      configure(cell: cell, for: indexPath!)
+    case .move:
+      tableView.deleteRows(at: [indexPath!], with: .automatic)
+      tableView.insertRows(at: [newIndexPath!], with: .automatic)
+    }
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    // the NSFetchedResultsController will listen to newly added or removed things in core data and it will notify our table view!
+    self.tableView.endUpdates()
   }
 }
