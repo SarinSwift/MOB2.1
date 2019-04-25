@@ -39,8 +39,13 @@ class ViewController: UIViewController {
   lazy var fetchedResultsController: NSFetchedResultsController<Team> = {
     
     let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
-    let allZones = NSSortDescriptor(key: "qualifyingZone", ascending: true)       // 1. first you need to create a sort description
-    fetchRequest.sortDescriptors = [allZones]                                     // 2. add it into our sortDescription as an array
+    
+    let allZones = NSSortDescriptor(key: "qualifyingZone", ascending: true)
+    let alphabeticalOrder = NSSortDescriptor(key: "teamName", ascending: true)
+    let scoreOrder = NSSortDescriptor(key: "wins", ascending: false)
+    
+    // the sortDescriptors NEED to be in order by what you want to sort first
+    fetchRequest.sortDescriptors = [allZones, scoreOrder, alphabeticalOrder]
     
     // the keyPath allows you to specify what result you want to use
     let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.managedContext, sectionNameKeyPath: #keyPath(Team.qualifyingZone), cacheName: nil)
