@@ -89,7 +89,10 @@ What is it?
   
   
 ## CoreData
-[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/FriendsCoreData)  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/FriendsCoreData) - simple updating and deleting from coredata  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/NSPredicate-Swift-master) - playgrounds for NSPredictes  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/WorldCup) - implementation with NSFetchedResultsController
+
 CoreData is not a DataBase but a persistence framework  
 
 **The core data stack**  
