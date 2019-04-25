@@ -48,6 +48,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04EBAE4B227156E200B2CEA6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FEE5CD101D7E0C44009F1321 /* ViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		04EBAE4C2271578700B2CEA6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FE14E6081D7E10ED0022D7FB /* TeamCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		04EBAE4D2271579800B2CEA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE8BD6F81D7E0E1B00CF84CE /* CoreDataStack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FEE5CD021D7E0C44009F1321 = {
 			isa = PBXGroup;
 			children = (
@@ -69,14 +93,14 @@
 		FEE5CD0D1D7E0C44009F1321 /* WorldCup */ = {
 			isa = PBXGroup;
 			children = (
-				FEE5CD0E1D7E0C44009F1321 /* AppDelegate.swift */,
-				FEE5CD101D7E0C44009F1321 /* ViewController.swift */,
-				FE14E6081D7E10ED0022D7FB /* TeamCell.swift */,
-				FE8BD6F81D7E0E1B00CF84CE /* CoreDataStack.swift */,
 				FED638491F4CCA68006C5675 /* Team+CoreDataClass.swift */,
 				FED6384A1F4CCA68006C5675 /* Team+CoreDataProperties.swift */,
-				FEE5CD121D7E0C44009F1321 /* Main.storyboard */,
+				FEE5CD0E1D7E0C44009F1321 /* AppDelegate.swift */,
+				04EBAE4B227156E200B2CEA6 /* controllers */,
+				04EBAE4C2271578700B2CEA6 /* views */,
+				04EBAE4D2271579800B2CEA6 /* Models */,
 				FEE5CD181D7E0C44009F1321 /* Assets.xcassets */,
+				FEE5CD121D7E0C44009F1321 /* Main.storyboard */,
 				FEE5CD1A1D7E0C44009F1321 /* LaunchScreen.storyboard */,
 				FEE5CD1D1D7E0C44009F1321 /* Info.plist */,
 				FEE5CD151D7E0C44009F1321 /* WorldCup.xcdatamodeld */,

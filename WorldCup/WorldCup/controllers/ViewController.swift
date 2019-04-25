@@ -39,14 +39,11 @@ class ViewController: UIViewController {
   lazy var fetchedResultsController: NSFetchedResultsController<Team> = {
     
     let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
-    fetchRequest.sortDescriptors = []
+    let allZones = NSSortDescriptor(key: "qualifyingZone", ascending: true)       // 1. first you need to create a sort description
+    fetchRequest.sortDescriptors = [allZones]                                     // 2. add it into our sortDescription as an array
     
-    let fetchedResultsController = NSFetchedResultsController(
-      fetchRequest: fetchRequest,
-      managedObjectContext: coreDataStack.managedContext,
-      sectionNameKeyPath: nil,
-      cacheName: nil)
-    
+    // the keyPath allows you to specify what result you want to use
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.managedContext, sectionNameKeyPath: #keyPath(Team.qualifyingZone), cacheName: nil)
     return fetchedResultsController
   }()
 
@@ -106,6 +103,11 @@ extension ViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: teamCellIdentifier, for: indexPath)
     configure(cell: cell, for: indexPath)
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    let sectionNames = fetchedResultsController.sections?[section]
+    return sectionNames?.name
   }
   
 }
