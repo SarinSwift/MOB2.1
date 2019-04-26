@@ -89,7 +89,10 @@ What is it?
   
   
 ## CoreData
-[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/FriendsCoreData)  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/FriendsCoreData) - simple updating and deleting from coredata  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/NSPredicate-Swift-master) - playgrounds for NSPredictes  
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/WorldCup) - implementation with NSFetchedResultsController
+
 CoreData is not a DataBase but a persistence framework  
 
 **The core data stack**  
@@ -111,6 +114,33 @@ View synchronizations (in charge of letting views and data be in synch with addi
 5. NSPersistentStore: Maps between records in the store and objects in your app   
 6. NSManagedObjectModel: Describes all NSManagedObjects  
 7. NSPersistentContainer: Encapsulates entire coredata stack (biggest picture)
+
+**Fetching from Core Data**  
+
+***NSFetchRequest***  
+We can fetch entities from core data by creating an instance of the NSFetchRequest.  
+Use NSFetchRequest's convenience initializer for easy code and simple input of the entity name.  
+
+***Sort Descriptors***  
+Sort descriptors allows us to sort information from our fetchRequest in whatever order we specify.  
+Initializing a sort descriptor ⤵  
+``` 
+let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+fetchRequest.sortDescriptors = [sortDescriptor]
+```
+
+***NSFetchedResultsController***  
+This is not a view controller!  
+Allows updating and changing our table views to be easy from performing queries to core data  
+The steps you should complete ⤵⤵⤵  
+1. Initialize our fetch request  
+2. Add our sort descriptors (optional)
+3. Add our predicates (optional)
+4. Initialize our fetchResultsController with the fetchRequest and managedObjectContext
+5. Set FetchedResultsController.self = delegate
+6. Implement our delegate FetchedResultsController methods (optional)
+7. Update so our numberOfRowsInSection, and cellForRowAt to use fetched results 
+8. Fetch from FetchedResultsController and reload data. Prbably in self.viewWillAppear
 
 
 
