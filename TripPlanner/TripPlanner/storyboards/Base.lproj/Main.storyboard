@@ -76,6 +76,125 @@
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
+        <!--Single Trip Name-->
+        <scene sceneID="xWT-CJ-nc4">
+            <objects>
+                <viewController storyboardIdentifier="singleDetailedID" id="RgV-H3-Wie" customClass="GetStartedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vom-vP-2SE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JHM-za-3IO">
+                                <rect key="frame" x="56" y="270.5" width="263.5" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any way points to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0Q-ZM-VOb">
+                                        <rect key="frame" x="0.0" y="0.0" width="263.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eM-kZ-BUr">
+                                        <rect key="frame" x="91.5" y="56" width="80" height="30"/>
+                                        <state key="normal" title="Get Started"/>
+                                        <connections>
+                                            <action selector="getStartedBtnTapped:" destination="RgV-H3-Wie" eventType="touchUpInside" id="Dxr-WX-eZ5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l0Q-ZM-VOb" firstAttribute="width" secondItem="Vom-vP-2SE" secondAttribute="width" multiplier="0.7" constant="1" id="4rn-UV-rMI"/>
+                            <constraint firstItem="JHM-za-3IO" firstAttribute="centerY" secondItem="MWn-wv-Axh" secondAttribute="centerY" constant="-30" id="N36-Pc-PxL"/>
+                            <constraint firstItem="JHM-za-3IO" firstAttribute="centerX" secondItem="MWn-wv-Axh" secondAttribute="centerX" id="SlG-Vt-TAa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MWn-wv-Axh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Single Trip Name" id="uaQ-1V-pgq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exT-5N-1cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="1040"/>
+        </scene>
+        <!--Trip Detailed View Controller-->
+        <scene sceneID="w7d-Br-vB9">
+            <objects>
+                <viewController storyboardIdentifier="tripDetailedID" id="BYv-6v-Qyf" customClass="TripDetailedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ugH-FT-Vgk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pb3-5w-JO2">
+                                <rect key="frame" x="0.0" y="40" width="375" height="167"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Wrq-Vk-7aT">
+                                        <rect key="frame" x="128" y="40.5" width="119" height="85.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stuttgart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roh-2T-aee">
+                                                <rect key="frame" x="0.0" y="0.0" width="119" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLE-xc-jUJ">
+                                                <rect key="frame" x="0.0" y="58.5" width="119" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Add more way points"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Wrq-Vk-7aT" firstAttribute="centerX" secondItem="pb3-5w-JO2" secondAttribute="centerX" id="NMW-LN-tVT"/>
+                                    <constraint firstItem="Wrq-Vk-7aT" firstAttribute="centerY" secondItem="pb3-5w-JO2" secondAttribute="centerY" id="Ncx-O7-mgL"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfN-4K-CLJ">
+                                <rect key="frame" x="0.0" y="207" width="375" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pb3-5w-JO2" firstAttribute="top" secondItem="ugH-FT-Vgk" secondAttribute="top" constant="40" id="5k4-3X-glj"/>
+                            <constraint firstItem="pb3-5w-JO2" firstAttribute="height" secondItem="ugH-FT-Vgk" secondAttribute="height" multiplier="0.25" id="Cyf-kt-Va9"/>
+                            <constraint firstItem="PfN-4K-CLJ" firstAttribute="trailing" secondItem="KJ5-cT-kbS" secondAttribute="trailing" id="abK-90-0Kp"/>
+                            <constraint firstItem="PfN-4K-CLJ" firstAttribute="bottom" secondItem="KJ5-cT-kbS" secondAttribute="bottom" id="ayl-De-UvU"/>
+                            <constraint firstItem="pb3-5w-JO2" firstAttribute="leading" secondItem="KJ5-cT-kbS" secondAttribute="leading" id="fJA-QB-EWw"/>
+                            <constraint firstItem="PfN-4K-CLJ" firstAttribute="leading" secondItem="KJ5-cT-kbS" secondAttribute="leading" id="iPC-M8-J47"/>
+                            <constraint firstItem="PfN-4K-CLJ" firstAttribute="top" secondItem="pb3-5w-JO2" secondAttribute="bottom" id="iUm-DW-BpJ"/>
+                            <constraint firstItem="pb3-5w-JO2" firstAttribute="trailing" secondItem="KJ5-cT-kbS" secondAttribute="trailing" id="kPt-3J-1GX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KJ5-cT-kbS"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="PfN-4K-CLJ" id="lJe-gJ-zmY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqc-GX-47O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="1039"/>
+        </scene>
+        <!--Add Way Point View Controller-->
+        <scene sceneID="yf2-c4-rtj">
+            <objects>
+                <viewController storyboardIdentifier="addWayPointID" id="gcs-YA-SJG" customClass="AddWayPointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s3l-ZK-qR1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GCL-7p-9pW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qrd-k6-Obn">
+                        <barButtonItem key="backBarButtonItem" title=" " id="YfU-pJ-GIb"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfY-cQ-0EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2641" y="1039"/>
+        </scene>
         <!--Add Trip-->
         <scene sceneID="gXE-sW-6WY">
             <objects>
@@ -128,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a07-UY-d6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3109.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2926" y="-465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wqJ-GL-kcG">
@@ -146,7 +265,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCj-5K-y4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="134"/>
+            <point key="canvasLocation" x="247" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dWb-jB-JUf">
@@ -164,7 +283,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAE-QD-hi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="134"/>
+            <point key="canvasLocation" x="2193" y="-464"/>
         </scene>
     </scenes>
 </document>

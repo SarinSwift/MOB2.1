@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04151830227382AD00A6B0DA /* NotificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415182F227382AD00A6B0DA /* NotificationExt.swift */; };
+		04151832227391BF00A6B0DA /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04151831227391BF00A6B0DA /* GetStartedViewController.swift */; };
+		04151834227392FB00A6B0DA /* AddWayPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04151833227392FB00A6B0DA /* AddWayPointViewController.swift */; };
+		0415183622739EE100A6B0DA /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415183522739EE100A6B0DA /* TripDetailedViewController.swift */; };
 		04CF129D2272B07C00B967D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129C2272B07C00B967D1 /* AppDelegate.swift */; };
 		04CF129F2272B07C00B967D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129E2272B07C00B967D1 /* MainViewController.swift */; };
 		04CF12A22272B07C00B967D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF12A02272B07C00B967D1 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		0415182F227382AD00A6B0DA /* NotificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExt.swift; sourceTree = "<group>"; };
+		04151831227391BF00A6B0DA /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		04151833227392FB00A6B0DA /* AddWayPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWayPointViewController.swift; sourceTree = "<group>"; };
+		0415183522739EE100A6B0DA /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		04CF12992272B07C00B967D1 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF129C2272B07C00B967D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF129E2272B07C00B967D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 			children = (
 				04CF129E2272B07C00B967D1 /* MainViewController.swift */,
 				04CF12B52272B5C800B967D1 /* AddTripViewController.swift */,
+				04151831227391BF00A6B0DA /* GetStartedViewController.swift */,
+				0415183522739EE100A6B0DA /* TripDetailedViewController.swift */,
+				04151833227392FB00A6B0DA /* AddWayPointViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -182,8 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04151834227392FB00A6B0DA /* AddWayPointViewController.swift in Sources */,
 				04CF12BB2272BE9800B967D1 /* TripsTableViewCell.swift in Sources */,
 				04151830227382AD00A6B0DA /* NotificationExt.swift in Sources */,
+				04151832227391BF00A6B0DA /* GetStartedViewController.swift in Sources */,
+				0415183622739EE100A6B0DA /* TripDetailedViewController.swift in Sources */,
 				04CF129F2272B07C00B967D1 /* MainViewController.swift in Sources */,
 				04CF12B62272B5C800B967D1 /* AddTripViewController.swift in Sources */,
 				04CF12A52272B07C00B967D1 /* TripPlanner.xcdatamodeld in Sources */,

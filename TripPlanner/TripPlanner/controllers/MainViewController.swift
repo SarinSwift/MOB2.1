@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController {
 
     var tripNames = ["Trip to Phuket"] {
         didSet {
@@ -32,6 +32,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tripNames.append(sender.object as! String)
     }
 
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripNames.count
     }
@@ -44,5 +47,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO:
+        
+        // If this trip has way points then go to tripDetailScreen
+        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+        let tripDetail = storyboard1.instantiateViewController(withIdentifier: "tripDetailedID") as! TripDetailedViewController
+        self.navigationController?.pushViewController(tripDetail, animated: true)
+
+        
+        // If No way points, Show a page to add waypoints
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
+//        self.navigationController?.pushViewController(singleTripDetailToAdd, animated: true)
     }
 }
