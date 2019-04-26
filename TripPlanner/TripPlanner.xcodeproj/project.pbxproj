@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04151830227382AD00A6B0DA /* NotificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415182F227382AD00A6B0DA /* NotificationExt.swift */; };
 		04CF129D2272B07C00B967D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129C2272B07C00B967D1 /* AppDelegate.swift */; };
 		04CF129F2272B07C00B967D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129E2272B07C00B967D1 /* MainViewController.swift */; };
 		04CF12A22272B07C00B967D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF12A02272B07C00B967D1 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0415182F227382AD00A6B0DA /* NotificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExt.swift; sourceTree = "<group>"; };
 		04CF12992272B07C00B967D1 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF129C2272B07C00B967D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF129E2272B07C00B967D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				04CF12B82272B8D100B967D1 /* AddTripExt.swift */,
+				0415182F227382AD00A6B0DA /* NotificationExt.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04CF12BB2272BE9800B967D1 /* TripsTableViewCell.swift in Sources */,
+				04151830227382AD00A6B0DA /* NotificationExt.swift in Sources */,
 				04CF129F2272B07C00B967D1 /* MainViewController.swift in Sources */,
 				04CF12B62272B5C800B967D1 /* AddTripViewController.swift in Sources */,
 				04CF12A52272B07C00B967D1 /* TripPlanner.xcdatamodeld in Sources */,

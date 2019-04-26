@@ -10,12 +10,26 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var tripNames = ["Trip to Phuket"]
+    var tripNames = ["Trip to Phuket"] {
+        didSet {
+            tableView.reloadData()      // Update the table view everytime we update the trip names
+        }
+    }
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(addTripName(_:)), name: .didAddTripName, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .didAddTripName, object: String.self)
+    }
+    
+    @objc func addTripName(_ sender: Notification){
+        self.tripNames.append(sender.object as! String)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,4 +46,3 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 60
     }
 }
-

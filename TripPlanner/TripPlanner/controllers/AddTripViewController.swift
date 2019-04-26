@@ -23,11 +23,13 @@ class AddTripViewController: UIViewController {
     
     @IBAction func addBtnTapped(_ sender: UIBarButtonItem) {
         guard tripNameTextField.text != "" else {
-            print("add a name")
             displayAlert(title: "Oh No!", msg: "Add a trip name before you submit")
             return
         }
         
-        // add to the first page
+        // Call the notification when we added a new trip name. This will trigger appending into the names array
+        NotificationCenter.default.post(name: .didAddTripName, object: tripNameTextField.text!)
+        
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
