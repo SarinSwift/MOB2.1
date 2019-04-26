@@ -23,11 +23,12 @@ class AddTripViewController: UIViewController {
     
     @IBAction func addBtnTapped(_ sender: UIBarButtonItem) {
         guard tripNameTextField.text != "" else {
+            print("add a name")
             displayAlert(title: "Oh No!", msg: "Add a trip name before you submit")
             return
         }
         
-        // Call the notification when we added a new trip name. This will trigger appending into the names array
+        // pass data to populate tableview by calling the function to append the name in the array
         NotificationCenter.default.post(name: .didAddTripName, object: tripNameTextField.text!)
         
         self.navigationController?.dismiss(animated: true, completion: nil)
