@@ -141,6 +141,9 @@
                                                 <rect key="frame" x="0.0" y="58.5" width="119" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="Add more way points"/>
+                                                <connections>
+                                                    <action selector="addMoreBtnTapped:" destination="BYv-6v-Qyf" eventType="touchUpInside" id="9iO-b6-xcj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

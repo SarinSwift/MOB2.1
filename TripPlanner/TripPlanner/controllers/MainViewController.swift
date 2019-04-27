@@ -68,7 +68,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO:
+        
+        let context = CoreDataManager.context
         
         // If this trip has way points then go to tripDetailScreen
         let storyboard1 = UIStoryboard(name: "Main", bundle: nil)

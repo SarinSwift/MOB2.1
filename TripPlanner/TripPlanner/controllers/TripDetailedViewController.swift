@@ -30,10 +30,14 @@ class TripDetailedViewController: UIViewController {
     }
     
     @objc func addWayPoint() {
-        // TODO:
-        // navigate to adding a waypoint
-        print("adding a waypoint")
-        
+        navigateToAddWaypointVC()
+    }
+    
+    @IBAction func addMoreBtnTapped(_ sender: Any) {
+        navigateToAddWaypointVC()
+    }
+    
+    func navigateToAddWaypointVC() {
         // seque to way point
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addWayPointVC = storyboard.instantiateViewController(withIdentifier: "addWayPointID") as! AddWayPointViewController
