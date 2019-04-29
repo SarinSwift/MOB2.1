@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		076765CC98A1B38047C72B18CD03BC38 /* Pods-LearningKeychains-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCE90DE06B2A363F9C6A2CCB83910125 /* Pods-LearningKeychains-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		076765CC98A1B38047C72B18CD03BC38 /* Pods-LearningKeychains-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE569D5EEFC575462DFFFEED06F90D1 /* Pods-LearningKeychains-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08AA89D020B5C4FD74D1529A3E972AB9 /* KeychainSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF102B7964AD385FC166B99196DB814 /* KeychainSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D3204735806A7FC5B0E5CB3D4897A6F /* Pods-LearningKeychains-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1C8DCC3715D11D91400B73E18373A /* Pods-LearningKeychains-dummy.m */; };
+		0D3204735806A7FC5B0E5CB3D4897A6F /* Pods-LearningKeychains-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 765953C93105DCFCB364A78CA8D04753 /* Pods-LearningKeychains-dummy.m */; };
 		1B8B1291087C52D1FBA1DF5FA4996424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		35242244DB94FCD20C68726EA703F300 /* Pods-LearningKeychainsTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87C8E2CA273F2623F96C4A7262F6A9CE /* Pods-LearningKeychainsTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AE1E8B1F619F7BC24F6FC088A4A47E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		7C0F17488B3552EAAFC074CFC4491DD5 /* TegKeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3DB4C78A555CB6EA84ED414869588 /* TegKeychainConstants.swift */; };
+		8C41E671B0502D064093CCD3F4F3AE2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		AD0E8D5F58B0B824D2631BDA9D541DFE /* KeychainSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD05FE1CA6C8B4A904397D2178752DB7 /* KeychainSwift-dummy.m */; };
 		CCBE57237E9F0DBAAF02A5575244F3BE /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D35B9D820C0C1B983E5255DCC7827D /* KeychainSwift.swift */; };
+		CDC086CA96F61168940C4D0AFF7FBB51 /* Pods-LearningKeychainsTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CF0EFC4138AE307543778FD91B3328 /* Pods-LearningKeychainsTests-dummy.m */; };
 		EBA8B955A11296BD7AA307752FE82ED4 /* KeychainSwiftAccessOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F746AC8B8C005635A40E69DA08EC026 /* KeychainSwiftAccessOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2C11D3B29B90632148B4601B251D0F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D5236C95A0AC93E9B3865ADFEA0C7B;
+			remoteInfo = "Pods-LearningKeychains";
+		};
 		31F6E6E8D58AA4CB1728D9F2A9AE4F26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -29,28 +39,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DC02CF387605F2E765FAC98363D7AE0 /* Pods-LearningKeychains-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychains-frameworks.sh"; sourceTree = "<group>"; };
-		12C7F758974B24EAC118E40F3FBD35B3 /* KeychainSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainSwift.framework; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		28CA255277E2948773ECFEEABF71E347 /* Pods-LearningKeychains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychains.release.xcconfig"; sourceTree = "<group>"; };
-		342BBD69EFFB71CD7AC577978BE4C8F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01C539B72DE34D2D3B3675CFF64CEF4D /* Pods-LearningKeychains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychains.debug.xcconfig"; sourceTree = "<group>"; };
+		084AAEEECD8E7A5C0AC1B4BCB1962788 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19599D522B7933AA73E5543F59868C32 /* Pods-LearningKeychainsTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychainsTests-resources.sh"; sourceTree = "<group>"; };
+		1D4C29F4FA3BFA5818FEC94D5F7FC8A0 /* Pods-LearningKeychainsTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LearningKeychainsTests.modulemap"; sourceTree = "<group>"; };
+		2C986F822065C63DCF85F97910A00478 /* Pods-LearningKeychains.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LearningKeychains.modulemap"; sourceTree = "<group>"; };
+		30FFA3BCA3B7B5239BE9196C9A6BAE80 /* Pods-LearningKeychains-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LearningKeychains-acknowledgements.markdown"; sourceTree = "<group>"; };
 		37D35B9D820C0C1B983E5255DCC7827D /* KeychainSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainSwift.swift; path = Sources/KeychainSwift.swift; sourceTree = "<group>"; };
-		3C6713AE6EAE2714EF5D2B296CC85416 /* Pods-LearningKeychains-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LearningKeychains-acknowledgements.markdown"; sourceTree = "<group>"; };
 		44638758937534573E5122B79F314F2D /* KeychainSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainSwift.xcconfig; sourceTree = "<group>"; };
-		49A316F886D5A1F9F27D31529CCD0F93 /* Pods-LearningKeychains.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LearningKeychains.modulemap"; sourceTree = "<group>"; };
+		53A01AED75333C5FD5489BFCB80A54CC /* Pods-LearningKeychains-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LearningKeychains-acknowledgements.plist"; sourceTree = "<group>"; };
+		53AAD9EBCC0FE6950C5F712B0371AD03 /* Pods_LearningKeychainsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LearningKeychainsTests.framework; path = "Pods-LearningKeychainsTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		569D43D9713C0E3100BB3C58A57D574C /* Pods-LearningKeychainsTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LearningKeychainsTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5B51F086D0454ED8BD91E04A8B237D31 /* Pods-LearningKeychainsTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychainsTests-frameworks.sh"; sourceTree = "<group>"; };
+		67B5C89FE3E6D0797A604AF80C73FE9F /* Pods-LearningKeychainsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychainsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6FFC65A58105FD4CCF799B6425AA5FB8 /* Pods_LearningKeychains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LearningKeychains.framework; path = "Pods-LearningKeychains.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76551BC3A9FC1980B975767DDCA48725 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		765953C93105DCFCB364A78CA8D04753 /* Pods-LearningKeychains-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LearningKeychains-dummy.m"; sourceTree = "<group>"; };
 		7DF102B7964AD385FC166B99196DB814 /* KeychainSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainSwift-umbrella.h"; sourceTree = "<group>"; };
+		7E85C37590CA3C21928FF6784A448477 /* Pods-LearningKeychainsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychainsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F746AC8B8C005635A40E69DA08EC026 /* KeychainSwiftAccessOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainSwiftAccessOptions.swift; path = Sources/KeychainSwiftAccessOptions.swift; sourceTree = "<group>"; };
+		7FE569D5EEFC575462DFFFEED06F90D1 /* Pods-LearningKeychains-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LearningKeychains-umbrella.h"; sourceTree = "<group>"; };
 		85D3DB4C78A555CB6EA84ED414869588 /* TegKeychainConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TegKeychainConstants.swift; path = Sources/TegKeychainConstants.swift; sourceTree = "<group>"; };
-		8AA1C8DCC3715D11D91400B73E18373A /* Pods-LearningKeychains-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LearningKeychains-dummy.m"; sourceTree = "<group>"; };
+		87C8E2CA273F2623F96C4A7262F6A9CE /* Pods-LearningKeychainsTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LearningKeychainsTests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A102AABDBC7D06FFDAEE2B087BEE06EB /* Pods-LearningKeychains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychains.debug.xcconfig"; sourceTree = "<group>"; };
-		AF007EE1518AF8A91DC81C9C26ABE846 /* Pods-LearningKeychains-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LearningKeychains-acknowledgements.plist"; sourceTree = "<group>"; };
+		95BA59332A9D017E36715DEA7E4AF51D /* KeychainSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainSwift.framework; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3CF0EFC4138AE307543778FD91B3328 /* Pods-LearningKeychainsTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LearningKeychainsTests-dummy.m"; sourceTree = "<group>"; };
+		BE6ACCC8044AF4D58E5EEB4233F56680 /* Pods-LearningKeychains-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychains-frameworks.sh"; sourceTree = "<group>"; };
 		C27F791992E17504CA80C30BA8E72A8F /* KeychainSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainSwift-prefix.pch"; sourceTree = "<group>"; };
-		DCE90DE06B2A363F9C6A2CCB83910125 /* Pods-LearningKeychains-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LearningKeychains-umbrella.h"; sourceTree = "<group>"; };
-		DDD6F75D195AE5B8EF08B1073171B477 /* Pods_LearningKeychains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LearningKeychains.framework; path = "Pods-LearningKeychains.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C735346644EE12654C1380248DCBC110 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEA5E8E4963BDF78C8F859B1EC4C7C81 /* KeychainSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainSwift.modulemap; sourceTree = "<group>"; };
-		EF7B6ED6746193F559BD06974711180E /* Pods-LearningKeychains-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychains-resources.sh"; sourceTree = "<group>"; };
+		EEDE56B05C78493D36F6A39E32AF1DB2 /* Pods-LearningKeychains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LearningKeychains.release.xcconfig"; sourceTree = "<group>"; };
+		F0CB5B91686C3220A0122026AEEAA09E /* Pods-LearningKeychainsTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LearningKeychainsTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F685DDC52BAD65BFB54F2C1610F5DF90 /* Pods-LearningKeychains-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LearningKeychains-resources.sh"; sourceTree = "<group>"; };
 		FD05FE1CA6C8B4A904397D2178752DB7 /* KeychainSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainSwift-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,15 +92,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED286A8BDFCBB5F12F21E5072BA27095 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C41E671B0502D064093CCD3F4F3AE2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F4B8D1F9E95D6665517337A45729C81 /* Targets Support Files */ = {
+		0228BED25178A4EE30EDDEE44D30A801 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8B7DB129A48DF41F306F438A3044FD3 /* Pods-LearningKeychains */,
+				41906BB3A96231241F244A4EE495E3F5 /* Pods-LearningKeychains */,
+				AD9BDC43D8E31D41F3EF361D9FE0DB67 /* Pods-LearningKeychainsTests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		41906BB3A96231241F244A4EE495E3F5 /* Pods-LearningKeychains */ = {
+			isa = PBXGroup;
+			children = (
+				C735346644EE12654C1380248DCBC110 /* Info.plist */,
+				2C986F822065C63DCF85F97910A00478 /* Pods-LearningKeychains.modulemap */,
+				30FFA3BCA3B7B5239BE9196C9A6BAE80 /* Pods-LearningKeychains-acknowledgements.markdown */,
+				53A01AED75333C5FD5489BFCB80A54CC /* Pods-LearningKeychains-acknowledgements.plist */,
+				765953C93105DCFCB364A78CA8D04753 /* Pods-LearningKeychains-dummy.m */,
+				BE6ACCC8044AF4D58E5EEB4233F56680 /* Pods-LearningKeychains-frameworks.sh */,
+				F685DDC52BAD65BFB54F2C1610F5DF90 /* Pods-LearningKeychains-resources.sh */,
+				7FE569D5EEFC575462DFFFEED06F90D1 /* Pods-LearningKeychains-umbrella.h */,
+				01C539B72DE34D2D3B3675CFF64CEF4D /* Pods-LearningKeychains.debug.xcconfig */,
+				EEDE56B05C78493D36F6A39E32AF1DB2 /* Pods-LearningKeychains.release.xcconfig */,
+			);
+			name = "Pods-LearningKeychains";
+			path = "Target Support Files/Pods-LearningKeychains";
 			sourceTree = "<group>";
 		};
 		4BEAEF86F98CDC35EEF36BEF0F812492 /* Pods */ = {
@@ -116,8 +164,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				4BEAEF86F98CDC35EEF36BEF0F812492 /* Pods */,
-				E02AFEC2F3C0AA3CDA2293A312816FA6 /* Products */,
-				2F4B8D1F9E95D6665517337A45729C81 /* Targets Support Files */,
+				DAB0A8447CEFEE1CD9166072446541F9 /* Products */,
+				0228BED25178A4EE30EDDEE44D30A801 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +183,24 @@
 			path = "../Target Support Files/KeychainSwift";
 			sourceTree = "<group>";
 		};
+		AD9BDC43D8E31D41F3EF361D9FE0DB67 /* Pods-LearningKeychainsTests */ = {
+			isa = PBXGroup;
+			children = (
+				084AAEEECD8E7A5C0AC1B4BCB1962788 /* Info.plist */,
+				1D4C29F4FA3BFA5818FEC94D5F7FC8A0 /* Pods-LearningKeychainsTests.modulemap */,
+				569D43D9713C0E3100BB3C58A57D574C /* Pods-LearningKeychainsTests-acknowledgements.markdown */,
+				F0CB5B91686C3220A0122026AEEAA09E /* Pods-LearningKeychainsTests-acknowledgements.plist */,
+				A3CF0EFC4138AE307543778FD91B3328 /* Pods-LearningKeychainsTests-dummy.m */,
+				5B51F086D0454ED8BD91E04A8B237D31 /* Pods-LearningKeychainsTests-frameworks.sh */,
+				19599D522B7933AA73E5543F59868C32 /* Pods-LearningKeychainsTests-resources.sh */,
+				87C8E2CA273F2623F96C4A7262F6A9CE /* Pods-LearningKeychainsTests-umbrella.h */,
+				7E85C37590CA3C21928FF6784A448477 /* Pods-LearningKeychainsTests.debug.xcconfig */,
+				67B5C89FE3E6D0797A604AF80C73FE9F /* Pods-LearningKeychainsTests.release.xcconfig */,
+			);
+			name = "Pods-LearningKeychainsTests";
+			path = "Target Support Files/Pods-LearningKeychainsTests";
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,29 +209,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C8B7DB129A48DF41F306F438A3044FD3 /* Pods-LearningKeychains */ = {
+		DAB0A8447CEFEE1CD9166072446541F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				342BBD69EFFB71CD7AC577978BE4C8F4 /* Info.plist */,
-				49A316F886D5A1F9F27D31529CCD0F93 /* Pods-LearningKeychains.modulemap */,
-				3C6713AE6EAE2714EF5D2B296CC85416 /* Pods-LearningKeychains-acknowledgements.markdown */,
-				AF007EE1518AF8A91DC81C9C26ABE846 /* Pods-LearningKeychains-acknowledgements.plist */,
-				8AA1C8DCC3715D11D91400B73E18373A /* Pods-LearningKeychains-dummy.m */,
-				0DC02CF387605F2E765FAC98363D7AE0 /* Pods-LearningKeychains-frameworks.sh */,
-				EF7B6ED6746193F559BD06974711180E /* Pods-LearningKeychains-resources.sh */,
-				DCE90DE06B2A363F9C6A2CCB83910125 /* Pods-LearningKeychains-umbrella.h */,
-				A102AABDBC7D06FFDAEE2B087BEE06EB /* Pods-LearningKeychains.debug.xcconfig */,
-				28CA255277E2948773ECFEEABF71E347 /* Pods-LearningKeychains.release.xcconfig */,
-			);
-			name = "Pods-LearningKeychains";
-			path = "Target Support Files/Pods-LearningKeychains";
-			sourceTree = "<group>";
-		};
-		E02AFEC2F3C0AA3CDA2293A312816FA6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				12C7F758974B24EAC118E40F3FBD35B3 /* KeychainSwift.framework */,
-				DDD6F75D195AE5B8EF08B1073171B477 /* Pods_LearningKeychains.framework */,
+				95BA59332A9D017E36715DEA7E4AF51D /* KeychainSwift.framework */,
+				6FFC65A58105FD4CCF799B6425AA5FB8 /* Pods_LearningKeychains.framework */,
+				53AAD9EBCC0FE6950C5F712B0371AD03 /* Pods_LearningKeychainsTests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +230,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A51748693F92D27CD8226C6F0E92CA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35242244DB94FCD20C68726EA703F300 /* Pods-LearningKeychainsTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDCCA8DB9A9A2B78257AAEB7F44C85C3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +249,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2EBD00B5B13E9A69D1C03F7DE9E1A544 /* Pods-LearningKeychainsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA745D40C174D51C9E18E03D2C9C8914 /* Build configuration list for PBXNativeTarget "Pods-LearningKeychainsTests" */;
+			buildPhases = (
+				8F3843B942C68E7620C6EF638C481DB7 /* Sources */,
+				ED286A8BDFCBB5F12F21E5072BA27095 /* Frameworks */,
+				8A51748693F92D27CD8226C6F0E92CA2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B45C7801325C2C6C1EB56ECDEC693DF1 /* PBXTargetDependency */,
+			);
+			name = "Pods-LearningKeychainsTests";
+			productName = "Pods-LearningKeychainsTests";
+			productReference = 53AAD9EBCC0FE6950C5F712B0371AD03 /* Pods_LearningKeychainsTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		38ACA430605AFB4229712A18BDDF5086 /* KeychainSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16C5D5A8E6CDB4211B0732F819F55A47 /* Build configuration list for PBXNativeTarget "KeychainSwift" */;
@@ -206,7 +281,7 @@
 			);
 			name = KeychainSwift;
 			productName = KeychainSwift;
-			productReference = 12C7F758974B24EAC118E40F3FBD35B3 /* KeychainSwift.framework */;
+			productReference = 95BA59332A9D017E36715DEA7E4AF51D /* KeychainSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B8D5236C95A0AC93E9B3865ADFEA0C7B /* Pods-LearningKeychains */ = {
@@ -224,7 +299,7 @@
 			);
 			name = "Pods-LearningKeychains";
 			productName = "Pods-LearningKeychains";
-			productReference = DDD6F75D195AE5B8EF08B1073171B477 /* Pods_LearningKeychains.framework */;
+			productReference = 6FFC65A58105FD4CCF799B6425AA5FB8 /* Pods_LearningKeychains.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -244,12 +319,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E02AFEC2F3C0AA3CDA2293A312816FA6 /* Products */;
+			productRefGroup = DAB0A8447CEFEE1CD9166072446541F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				38ACA430605AFB4229712A18BDDF5086 /* KeychainSwift */,
 				B8D5236C95A0AC93E9B3865ADFEA0C7B /* Pods-LearningKeychains */,
+				2EBD00B5B13E9A69D1C03F7DE9E1A544 /* Pods-LearningKeychainsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +336,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3204735806A7FC5B0E5CB3D4897A6F /* Pods-LearningKeychains-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F3843B942C68E7620C6EF638C481DB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC086CA96F61168940C4D0AFF7FBB51 /* Pods-LearningKeychainsTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +366,12 @@
 			name = KeychainSwift;
 			target = 38ACA430605AFB4229712A18BDDF5086 /* KeychainSwift */;
 			targetProxy = 31F6E6E8D58AA4CB1728D9F2A9AE4F26 /* PBXContainerItemProxy */;
+		};
+		B45C7801325C2C6C1EB56ECDEC693DF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-LearningKeychains";
+			target = B8D5236C95A0AC93E9B3865ADFEA0C7B /* Pods-LearningKeychains */;
+			targetProxy = 2C11D3B29B90632148B4601B251D0F2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -341,6 +431,45 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		27A4998F8936D49E737B485EDFE657B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67B5C89FE3E6D0797A604AF80C73FE9F /* Pods-LearningKeychainsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LearningKeychainsTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LearningKeychainsTests/Pods-LearningKeychainsTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -444,9 +573,47 @@
 			};
 			name = Debug;
 		};
+		8C328372D0BA95F5F9EC6D1489E8C050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E85C37590CA3C21928FF6784A448477 /* Pods-LearningKeychainsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LearningKeychainsTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LearningKeychainsTests/Pods-LearningKeychainsTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B2E334CC2F9DF5368A86D5AEE079449A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A102AABDBC7D06FFDAEE2B087BEE06EB /* Pods-LearningKeychains.debug.xcconfig */;
+			baseConfigurationReference = 01C539B72DE34D2D3B3675CFF64CEF4D /* Pods-LearningKeychains.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -522,7 +689,7 @@
 		};
 		CAA77BF29973DB22D117FA0DC43455D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28CA255277E2948773ECFEEABF71E347 /* Pods-LearningKeychains.release.xcconfig */;
+			baseConfigurationReference = EEDE56B05C78493D36F6A39E32AF1DB2 /* Pods-LearningKeychains.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -586,6 +753,15 @@
 			buildConfigurations = (
 				B2E334CC2F9DF5368A86D5AEE079449A /* Debug */,
 				CAA77BF29973DB22D117FA0DC43455D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA745D40C174D51C9E18E03D2C9C8914 /* Build configuration list for PBXNativeTarget "Pods-LearningKeychainsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C328372D0BA95F5F9EC6D1489E8C050 /* Debug */,
+				27A4998F8936D49E737B485EDFE657B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

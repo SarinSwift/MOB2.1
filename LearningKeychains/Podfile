@@ -6,5 +6,10 @@ target 'LearningKeychains' do
   use_frameworks!
 
   # Pods for LearningKeychains
-  pod 'KeychainSwift', '~> 13.0'
+  pod 'KeychainSwift'
+
+  target 'LearningKeychainsTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 end
