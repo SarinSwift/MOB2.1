@@ -179,6 +179,17 @@ No because:
 -Probably not worth the effort neyond a certain point  
 However, the critical code must be covered at almost 100%  
 
+## Unit Testing (Core data)  
+Things we should use to make testing easy:  
+  Using a fake (NSInMemoryStoreType: in memory store type)  
+  Using stubs to create items (call in setup method so the testing starts off with data saved)  
+  Using a background object  
+  
+Create tests based on the following methodology:  
+  GIVEN: the data  
+  WHEN: removed / added / updated  
+  ASSERT: the data saved is correct  
+
 ## UI Testing 
 Recording interactions within the apps UI objects with queries, synthesizing events, then sending them to those objects.
 
