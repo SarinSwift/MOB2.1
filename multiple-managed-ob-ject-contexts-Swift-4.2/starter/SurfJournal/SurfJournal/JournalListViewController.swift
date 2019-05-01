@@ -96,52 +96,63 @@ private extension JournalListViewController {
   func exportCSVFile() {
     navigationItem.leftBarButtonItem = activityIndicatorBarButtonItem()
 
-    // Retreive all entities by executing a fetch request
-    let context = coreDataStack.mainContext
-    var results: [JournalEntry] = []
-    do {
-      results = try context.fetch(self.surfJournalFetchRequest())
-    } catch let error as NSError {
-      print("ERROR: \(error.localizedDescription)")
-    }
-
-    // 2
-    let exportFilePath = NSTemporaryDirectory() + "export.csv"
-    let exportFileURL = URL(fileURLWithPath: exportFilePath)
-    FileManager.default.createFile(atPath: exportFilePath, contents: Data(), attributes: nil)
-
-    // 3
-    let fileHandle: FileHandle?
-    do {
-      fileHandle = try FileHandle(forWritingTo: exportFileURL)
-    } catch let error as NSError {
-      print("ERROR: \(error.localizedDescription)")
-      fileHandle = nil
-    }
-
-    if let fileHandle = fileHandle {
-      // 4
-      for journalEntry in results {
-        fileHandle.seekToEndOfFile()
-        guard let csvData = journalEntry
-          .csv()
-          .data(using: .utf8, allowLossyConversion: false) else {
-            continue
-        }
-
-        fileHandle.write(csvData)
+    // We’re now calling performBackgroundTask(_:) on the stack’s persistent store container.
+    //  this creates a new managed object context and passes it into the closure.
+    coreDataStack.storeContainer.performBackgroundTask { (moc) in
+      var results: [JournalEntry] = []
+      do {
+        results = try moc.fetch(self.surfJournalFetchRequest())
+      } catch let error as NSError {
+        print("ERROR: \(error.localizedDescription)")
       }
-
-      // 5
-      fileHandle.closeFile()
-
-      print("Export Path: \(exportFilePath)")
-      self.navigationItem.leftBarButtonItem = self.exportBarButtonItem()
-      self.showExportFinishedAlertView(exportFilePath)
-
-    } else {
-      self.navigationItem.leftBarButtonItem = self.exportBarButtonItem()
+      
+      
+      // Create the URL for the exported CSV file
+      let exportFilePath = NSTemporaryDirectory() + "export.csv"
+      let exportFileURL = URL(fileURLWithPath: exportFilePath)
+      FileManager.default.createFile(atPath: exportFilePath, contents: Data(), attributes: nil)
+      
+      // 3
+      let fileHandle: FileHandle?
+      do {
+        fileHandle = try FileHandle(forWritingTo: exportFileURL)
+      } catch let error as NSError {
+        print("ERROR: \(error.localizedDescription)")
+        fileHandle = nil
+      }
+      
+      if let fileHandle = fileHandle {
+        // 4
+        for journalEntry in results {
+          fileHandle.seekToEndOfFile()
+          guard let csvData = journalEntry
+            .csv()
+            .data(using: .utf8, allowLossyConversion: false) else {
+              continue
+          }
+          
+          fileHandle.write(csvData)
+        }
+        
+        // 5
+        fileHandle.closeFile()
+        
+        
+        
+        print("Export Path: \(exportFilePath)")
+        
+        // We show the final alert view message on the main queue.
+        DispatchQueue.main.async {
+          self.navigationItem.leftBarButtonItem = self.exportBarButtonItem()
+          self.showExportFinishedAlertView(exportFilePath)
+        }
+      } else {
+        DispatchQueue.main.async {
+          self.navigationItem.leftBarButtonItem = self.exportBarButtonItem()
+        }
+      }
     }
+    
   }
 
   // MARK: Export
