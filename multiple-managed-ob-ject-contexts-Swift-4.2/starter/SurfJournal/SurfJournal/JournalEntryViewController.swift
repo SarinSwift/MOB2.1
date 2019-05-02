@@ -30,6 +30,7 @@ import UIKit
 import CoreData
 
 // MARK: JournalEntryDelegate
+// Indicates if the user is done editing or viewing a journal entry and whether any changes should be saved.
 protocol JournalEntryDelegate {
   func didFinish(viewController: JournalEntryViewController, didSave: Bool)
 }

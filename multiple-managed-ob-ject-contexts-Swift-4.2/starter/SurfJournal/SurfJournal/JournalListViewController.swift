@@ -47,19 +47,23 @@ class JournalListViewController: UITableViewController {
 
   // MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // 1
+    
     if segue.identifier == "SegueListToDetail" {
-      // 2
       guard let navigationController = segue.destination as? UINavigationController,
         let detailViewController = navigationController.topViewController as? JournalEntryViewController,
         let indexPath = tableView.indexPathForSelectedRow else {
           fatalError("Application storyboard mis-configuration")
       }
-      // 3
+      // Get the JournalEntry's objectId selected by user
       let surfJournalEntry = fetchedResultsController.object(at: indexPath)
-      // 4
-      detailViewController.journalEntry = surfJournalEntry
-      detailViewController.context = surfJournalEntry.managedObjectContext
+      
+      // set a parent context instead of a PSC as you would normally do when creating a managed object context
+      let childContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+      childContext.parent = coreDataStack.mainContext
+      // use object(with:) to retrieve the journal entry
+      let childEntry = childContext.object(with: surfJournalEntry.objectID) as? JournalEntry
+      detailViewController.journalEntry = childEntry
+      detailViewController.context = childContext
       detailViewController.delegate = self
 
     } else if segue.identifier == "SegueListToDetailAdd" {
@@ -294,6 +298,8 @@ extension JournalListViewController: JournalEntryDelegate {
   
   func didFinish(viewController: JournalEntryViewController, didSave: Bool) {
 
+    // Guard that didSave must be true. This will be true if the user taps the Save button instead of the Cancel button,
+    // Also guarding the hasChange property. if nothing has changed, there’s no need to waste time doing more work.
     guard didSave,
       let context = viewController.context,
       context.hasChanges else {
@@ -301,6 +307,8 @@ extension JournalListViewController: JournalEntryDelegate {
         return
     }
 
+    // Saving context inside of perform(_:) sets this context to the main context
+    // Once you add a child context later on, the JournalEntryViewController context will be different from the main context, making this code necessary.
     context.perform {
       do {
         try context.save()
@@ -308,6 +316,7 @@ extension JournalListViewController: JournalEntryDelegate {
         fatalError("Error: \(error.localizedDescription)")
       }
 
+      // save the main context! Because we must know that saving context from the child will only work on the main thread and other contexts if we also save the main context
       self.coreDataStack.saveContext()
     }
 
