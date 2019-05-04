@@ -7,5 +7,5 @@ target 'TripPlanner' do
 
   # Pods for TripPlanner
   pod 'GooglePlaces'
-  pod 'GoogleMaps'
+  pod 'GoogleMaps', '~> 1.13.2'
 end
