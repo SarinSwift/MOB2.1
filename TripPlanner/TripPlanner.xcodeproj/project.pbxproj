@@ -26,6 +26,8 @@
 		04CF12B62272B5C800B967D1 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12B52272B5C800B967D1 /* AddTripViewController.swift */; };
 		04CF12B92272B8D100B967D1 /* AddTripExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12B82272B8D100B967D1 /* AddTripExt.swift */; };
 		04CF12BB2272BE9800B967D1 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12BA2272BE9800B967D1 /* TripsTableViewCell.swift */; };
+		04F90DF0227D0A5A001795AB /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F90DEF227D0A5A001795AB /* ServiceLayer.swift */; };
+		04F90DF3227D0B3E001795AB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F90DF2227D0B3E001795AB /* Router.swift */; };
 		19EA186BDA88A25B3C38C955 /* Pods_TripPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3455B2105517C29C2AE0B1DD /* Pods_TripPlanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		04CF12B52272B5C800B967D1 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		04CF12B82272B8D100B967D1 /* AddTripExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripExt.swift; sourceTree = "<group>"; };
 		04CF12BA2272BE9800B967D1 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
+		04F90DEF227D0A5A001795AB /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		04F90DF2227D0B3E001795AB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3455B2105517C29C2AE0B1DD /* Pods_TripPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		746C263B9F12D80EDC446326 /* Pods-TripPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		C036F40167D23BA179F3AB4C /* Pods-TripPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				04CF129C2272B07C00B967D1 /* AppDelegate.swift */,
 				042242102273E6CB002A9ED5 /* constants.swift */,
 				04CF12B22272B23F00B967D1 /* controllers */,
+				04F90DF1227D0B22001795AB /* networkingLayer */,
 				04CF12B32272B24500B967D1 /* views */,
 				04CF12B72272B8A000B967D1 /* extensions */,
 				0474F3102273BD9500C3FE9A /* models */,
@@ -151,6 +156,15 @@
 				0415182F227382AD00A6B0DA /* NotificationExt.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		04F90DF1227D0B22001795AB /* networkingLayer */ = {
+			isa = PBXGroup;
+			children = (
+				04F90DEF227D0A5A001795AB /* ServiceLayer.swift */,
+				04F90DF2227D0B3E001795AB /* Router.swift */,
+			);
+			path = networkingLayer;
 			sourceTree = "<group>";
 		};
 		75FFAB82B41A511535BEF81E /* Pods */ = {
@@ -284,9 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F90DF0227D0A5A001795AB /* ServiceLayer.swift in Sources */,
 				04151834227392FB00A6B0DA /* AddWayPointViewController.swift in Sources */,
 				04CF12BB2272BE9800B967D1 /* TripsTableViewCell.swift in Sources */,
 				0415183E2273A81E00A6B0DA /* WayPoints+CoreDataProperties.swift in Sources */,
+				04F90DF3227D0B3E001795AB /* Router.swift in Sources */,
 				0474F3122273BDA700C3FE9A /* CoreDataManager.swift in Sources */,
 				0415183D2273A81E00A6B0DA /* WayPoints+CoreDataClass.swift in Sources */,
 				0415183C2273A81E00A6B0DA /* Trips+CoreDataProperties.swift in Sources */,

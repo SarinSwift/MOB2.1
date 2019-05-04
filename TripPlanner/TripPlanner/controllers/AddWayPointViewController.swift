@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import MapKit
+import GooglePlaces
+import GoogleMaps
 
-class AddWayPointViewController: UIViewController {
-
+class AddWayPointViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate {
+    
+    // MARK: properties
+    
+    private let locationManager = CLLocationManager()
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: set up
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavBar()
+        
+        mapView.delegate = self
+        searchBar.delegate = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func setNavBar() {
@@ -32,5 +49,41 @@ class AddWayPointViewController: UIViewController {
         // save contents of way point
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: map view methods
+    
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        let region = MKCoordinateRegion.init(center: (locationManager.location?.coordinate)!, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    
+    // MARK: Search bar delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Text did change")
+        ServiceLayer.request(router: Router.getWaypoint(queryValue: searchText))
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        print("done")
+    }
+}
+
+extension AddWayPointViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else {
+            return
+        }
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
+        
+        locationManager.stopUpdatingLocation()
     }
 }
