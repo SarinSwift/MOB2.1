@@ -164,8 +164,8 @@
 		04F90DF1227D0B22001795AB /* networkingLayer */ = {
 			isa = PBXGroup;
 			children = (
-				04F90DEF227D0A5A001795AB /* ServiceLayer.swift */,
 				04F90DF2227D0B3E001795AB /* Router.swift */,
+				04F90DEF227D0A5A001795AB /* ServiceLayer.swift */,
 			);
 			path = networkingLayer;
 			sourceTree = "<group>";

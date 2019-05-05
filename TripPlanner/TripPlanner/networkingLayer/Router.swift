@@ -8,10 +8,14 @@
 
 import Foundation
 
-// https://maps.googleapis.com/maps/api/place/textsearch/json?query=juncelon&key=AIzaSyCmYpgweVPahnNeNBogPHo8Zs0PQdtfkFk
+// https://maps.googleapis.com/maps/api/place/textsearch/json?query=juncelon&key='INSERT_KEY'
 
 enum Router {
     case getWaypoint(queryValue: String)
+    
+    var apiKey: String {
+        return constants.googleApiKey
+    }
     
     var scheme: String {
         switch self {
@@ -35,7 +39,6 @@ enum Router {
     }
     
     var parameters: [URLQueryItem] {
-        let apiKey = constants.googleApiKey
         switch self {
         case .getWaypoint(let queryValue):
             return [URLQueryItem(name: "query", value: queryValue),

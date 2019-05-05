@@ -9,7 +9,7 @@
 import UIKit
 
 class ServiceLayer {
-    class func request(router: Router) {
+    class func requestPlacesFromGoogle( router: Router)  {
         var components = URLComponents()
         components.scheme = router.scheme
         components.host = router.host
@@ -20,7 +20,7 @@ class ServiceLayer {
         guard let url = components.url else {
             return
         }
-        var urlRequest = URLRequest(url: url)
+        let urlRequest = URLRequest(url: url)
         
         // create the session data task
         let session = URLSession(configuration: .default)
@@ -33,10 +33,26 @@ class ServiceLayer {
                 return
             }
             guard let data = data else {
+                print("Error, no data")
                 return
             }
             
-            print(data)
+            print("data: \(data)")
+            let theString:NSString = NSString(data: data, encoding: String.Encoding.ascii.rawValue)!
+            print("data in string format: \(theString)")
+            
+            
+            do {
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let results = json["results"] {
+                        print("results: \(results)")
+                    }
+                }
+                
+            } catch let error as NSError{
+                print("error: \(error.userInfo)")
+            }
         }
         dataTask.resume()
     }

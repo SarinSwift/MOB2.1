@@ -11,13 +11,14 @@ import MapKit
 import GooglePlaces
 import GoogleMaps
 
-class AddWayPointViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate {
+class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     
+    var resultsArr = [[String: AnyObject]]()
     private let locationManager = CLLocationManager()
-    
     var resultSearchController:UISearchController? = nil
+    
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Set up
@@ -47,6 +48,7 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate, UISearchBa
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
+        searchBar.delegate = self 
         navigationItem.titleView = resultSearchController?.searchBar
         
         // we want the search bar accessible at all times
@@ -79,18 +81,6 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate, UISearchBa
         let region = MKCoordinateRegion.init(center: (locationManager.location?.coordinate)!, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
-    
-    
-    // MARK: - Search bar delegate
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Text did change")
-        ServiceLayer.request(router: Router.getWaypoint(queryValue: searchText))
-    }
-    
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-        print("done")
-    }
 }
 
 extension AddWayPointViewController: CLLocationManagerDelegate {
@@ -101,7 +91,7 @@ extension AddWayPointViewController: CLLocationManagerDelegate {
         locationManager.requestLocation()
         locationManager.startUpdatingLocation()
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
@@ -110,7 +100,7 @@ extension AddWayPointViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         
-        // adding the placemark of the user's location 
+        // adding the placemark of the user's location
         let annotation = MKPointAnnotation()
         annotation.coordinate = location.coordinate
         annotation.title = "Title"
@@ -120,5 +110,25 @@ extension AddWayPointViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error)")
+    }
+}
+
+extension AddWayPointViewController: UISearchBarDelegate {
+    
+    // MARK: - Search bar delegate
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Text did change")
+        ServiceLayer.requestPlacesFromGoogle(router: Router.getWaypoint(queryValue: searchText))
+        
+        // TODO: Don't think this is working...
+        // update the tableview in locationSearchTable
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        locationSearchTable.resultsArrTable = self.resultsArr
+        locationSearchTable.tableView.reloadData()
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        print("done")
     }
 }
