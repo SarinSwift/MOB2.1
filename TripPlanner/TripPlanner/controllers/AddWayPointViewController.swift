@@ -15,11 +15,14 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     
-    var resultsArr = [[String: AnyObject]]()
+    var placesClient: GMSPlacesClient!
     private let locationManager = CLLocationManager()
-    var resultSearchController:UISearchController? = nil
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    
     
     // MARK: - Set up
     
@@ -30,6 +33,12 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
         setSearchBar()
         setLocation()
         mapView.delegate = self
+        
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+        placesClient = GMSPlacesClient.shared()
     }
     
     func setNavBar() {
@@ -39,23 +48,19 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(goBackFromSave))
     }
     func setSearchBar() {
-        // This will serve as the searchResultsUpdater delegate
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
         
-        // configure the search bar and embeds in the nav bar
-        let searchBar = resultSearchController!.searchBar
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self as GMSAutocompleteResultsViewControllerDelegate
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        
+        let searchBar = searchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
-        searchBar.delegate = self 
-        navigationItem.titleView = resultSearchController?.searchBar
-        
-        // we want the search bar accessible at all times
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        // semi-transparent background when the search bar is selected
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+        navigationItem.titleView = searchController?.searchBar
         definesPresentationContext = true
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.modalPresentationStyle = .popover
     }
     func setLocation() {
         locationManager.delegate = self
@@ -63,6 +68,9 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
+    
+    
+    // MARK: - Methods
     
     @objc func goBackFromBack() {
         self.navigationController?.popViewController(animated: true)
@@ -80,6 +88,32 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         let region = MKCoordinateRegion.init(center: (locationManager.location?.coordinate)!, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
+    }
+}
+
+extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegate {
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        
+        // TODO: Add the pin to the map
+        print("Place name: \(place.name)")
+        print("Place address: \(String(describing: place.formattedAddress))")
+        print("Place coordinates: \(place.coordinate)")
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didFailAutocompleteWithError error: Error){
+        print("Error: \(error.localizedDescription)")
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 
@@ -110,28 +144,5 @@ extension AddWayPointViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error)")
-    }
-}
-
-extension AddWayPointViewController: UISearchBarDelegate {
-    
-    // MARK: - Search bar delegate
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Text did change")
-        ServiceLayer.requestPlacesFromGoogle(router: Router.getWaypoint(queryValue: searchText)) { (result: Result) in
-            print("results in our call: \(result)")
-            // update the resultsTableView to display all the results we want
-        }
-        
-        // TODO: Don't think this is working...
-        // update the tableview in locationSearchTable by sending data over to display in table view cells
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        locationSearchTable.resultsArrTable = self.resultsArr
-        locationSearchTable.tableView.reloadData()
-    }
-    
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-        print("done")
     }
 }
