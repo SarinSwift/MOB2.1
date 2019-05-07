@@ -119,10 +119,13 @@ extension AddWayPointViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Text did change")
-        ServiceLayer.requestPlacesFromGoogle(router: Router.getWaypoint(queryValue: searchText))
+        ServiceLayer.requestPlacesFromGoogle(router: Router.getWaypoint(queryValue: searchText)) { (result: Result) in
+            print("results in our call: \(result)")
+            // update the resultsTableView to display all the results we want
+        }
         
         // TODO: Don't think this is working...
-        // update the tableview in locationSearchTable
+        // update the tableview in locationSearchTable by sending data over to display in table view cells
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         locationSearchTable.resultsArrTable = self.resultsArr
         locationSearchTable.tableView.reloadData()

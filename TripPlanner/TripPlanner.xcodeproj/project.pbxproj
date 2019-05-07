@@ -18,6 +18,7 @@
 		042242112273E6CB002A9ED5 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042242102273E6CB002A9ED5 /* constants.swift */; };
 		0474F3122273BDA700C3FE9A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474F3112273BDA700C3FE9A /* CoreDataManager.swift */; };
 		0488510D227E352600A1E3CD /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488510C227E352600A1E3CD /* LocationSearchTable.swift */; };
+		048D17E42280ED4200E72829 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D17E32280ED4200E72829 /* Result.swift */; };
 		04CF129D2272B07C00B967D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129C2272B07C00B967D1 /* AppDelegate.swift */; };
 		04CF129F2272B07C00B967D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF129E2272B07C00B967D1 /* MainViewController.swift */; };
 		04CF12A22272B07C00B967D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF12A02272B07C00B967D1 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		042242102273E6CB002A9ED5 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		0474F3112273BDA700C3FE9A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0488510C227E352600A1E3CD /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		048D17E32280ED4200E72829 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		04CF12992272B07C00B967D1 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF129C2272B07C00B967D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF129E2272B07C00B967D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				0474F3112273BDA700C3FE9A /* CoreDataManager.swift */,
+				048D17E32280ED4200E72829 /* Result.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				04CF12A52272B07C00B967D1 /* TripPlanner.xcdatamodeld in Sources */,
 				04CF129D2272B07C00B967D1 /* AppDelegate.swift in Sources */,
 				04CF12B92272B8D100B967D1 /* AddTripExt.swift in Sources */,
+				048D17E42280ED4200E72829 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

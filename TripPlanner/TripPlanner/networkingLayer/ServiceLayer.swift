@@ -9,7 +9,7 @@
 import UIKit
 
 class ServiceLayer {
-    class func requestPlacesFromGoogle( router: Router)  {
+    class func requestPlacesFromGoogle<T: Codable>( router: Router, completion: @escaping (T) -> ())  {
         var components = URLComponents()
         components.scheme = router.scheme
         components.host = router.host
@@ -37,17 +37,15 @@ class ServiceLayer {
                 return
             }
             
-            print("data: \(data)")
-            let theString:NSString = NSString(data: data, encoding: String.Encoding.ascii.rawValue)!
-            print("data in string format: \(theString)")
+//            let theString: NSString = NSString(data: data, encoding: String.Encoding.ascii.rawValue)!
+//            print("data in string format: \(theString)")
             
             
             do {
                 
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let results = json["results"] {
-                        print("results: \(results)")
-                    }
+                if let json = try? JSONDecoder().decode(T.self, from: data) {
+                    print("decoding the json data")
+                    completion(json)
                 }
                 
             } catch let error as NSError{
