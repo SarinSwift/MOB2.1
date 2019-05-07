@@ -142,7 +142,23 @@ The steps you should complete ⤵⤵⤵
 7. Update so our numberOfRowsInSection, and cellForRowAt to use fetched results 
 8. Fetch from FetchedResultsController and reload data. Prbably in self.viewWillAppear
 
+# Realm
+[Project work](https://github.com/SarinSwift/MOB2.1/tree/master/RealmPracticeSwift)  
+**A cross platform database(iOS, Android, Web) for persisting data in iOS** 
 
+**Pros of realm**    
+- thread safe (except for some small cases) 
+- easy setup
+- easy to solve queries
+- can show updated data
+- supports docs
+
+**Can be:**    
+In memory  
+Synchronized  
+Local
+
+[Walk through on how to use Realm](https://github.com/Make-School-Courses/MOB-2.1-Local-Persistence-in-iOS/blob/master/Lessons/11-Realm-Intro/Readme.md#realm-walkthrough)
 
 # Tests
 [Project work](https://github.com/SarinSwift/MOB2.1/tree/master/LearningToUseTests)  
