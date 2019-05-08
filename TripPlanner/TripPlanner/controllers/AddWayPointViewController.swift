@@ -84,22 +84,28 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     }
     
     // MARK: - Map view methods
-    
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        let region = MKCoordinateRegion.init(center: (locationManager.location?.coordinate)!, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        mapView.setRegion(region, animated: true)
-    }
 }
 
 extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        
-        // TODO: Add the pin to the map
         print("Place name: \(place.name)")
         print("Place address: \(String(describing: place.formattedAddress))")
         print("Place coordinates: \(place.coordinate)")
+        
+        // remove all annotations so there's only 1 current one on the map at all times
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: place.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        // adding the placemark of the user's location
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = place.coordinate
+        annotation.title = place.name
+        annotation.subtitle = place.formattedAddress
+        mapView.addAnnotation(annotation)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
@@ -127,19 +133,6 @@ extension AddWayPointViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: location.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
-        
-        // adding the placemark of the user's location
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location.coordinate
-        annotation.title = "Title"
-        annotation.subtitle = "subtitle"
-        mapView.addAnnotation(annotation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
