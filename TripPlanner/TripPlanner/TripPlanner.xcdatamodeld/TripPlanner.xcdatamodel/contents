@@ -5,12 +5,13 @@
         <relationship name="waypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WayPoints" inverseName="relationship" inverseEntity="WayPoints" syncable="YES"/>
     </entity>
     <entity name="WayPoints" representedClassName="WayPoints" syncable="YES">
-        <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trips" inverseName="waypoints" inverseEntity="Trips" syncable="YES"/>
     </entity>
     <elements>
         <element name="Trips" positionX="-290.69140625" positionY="-18.76953125" width="128" height="75"/>
-        <element name="WayPoints" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="WayPoints" positionX="-54" positionY="9" width="128" height="105"/>
     </elements>
 </model>

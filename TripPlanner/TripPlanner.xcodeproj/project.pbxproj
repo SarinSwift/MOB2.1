@@ -27,6 +27,7 @@
 		04CF12B62272B5C800B967D1 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12B52272B5C800B967D1 /* AddTripViewController.swift */; };
 		04CF12B92272B8D100B967D1 /* AddTripExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12B82272B8D100B967D1 /* AddTripExt.swift */; };
 		04CF12BB2272BE9800B967D1 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF12BA2272BE9800B967D1 /* TripsTableViewCell.swift */; };
+		04D2593C2283710C0043E88D /* DisplayWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2593B2283710C0043E88D /* DisplayWaypointViewController.swift */; };
 		04F90DF0227D0A5A001795AB /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F90DEF227D0A5A001795AB /* ServiceLayer.swift */; };
 		04F90DF3227D0B3E001795AB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F90DF2227D0B3E001795AB /* Router.swift */; };
 		19EA186BDA88A25B3C38C955 /* Pods_TripPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3455B2105517C29C2AE0B1DD /* Pods_TripPlanner.framework */; };
@@ -55,6 +56,7 @@
 		04CF12B52272B5C800B967D1 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		04CF12B82272B8D100B967D1 /* AddTripExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripExt.swift; sourceTree = "<group>"; };
 		04CF12BA2272BE9800B967D1 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
+		04D2593B2283710C0043E88D /* DisplayWaypointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayWaypointViewController.swift; sourceTree = "<group>"; };
 		04F90DEF227D0A5A001795AB /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		04F90DF2227D0B3E001795AB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3455B2105517C29C2AE0B1DD /* Pods_TripPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				04151831227391BF00A6B0DA /* GetStartedViewController.swift */,
 				0415183522739EE100A6B0DA /* TripDetailedViewController.swift */,
 				04151833227392FB00A6B0DA /* AddWayPointViewController.swift */,
+				04D2593B2283710C0043E88D /* DisplayWaypointViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				0415183C2273A81E00A6B0DA /* Trips+CoreDataProperties.swift in Sources */,
 				0415183B2273A81E00A6B0DA /* Trips+CoreDataClass.swift in Sources */,
 				042242112273E6CB002A9ED5 /* constants.swift in Sources */,
+				04D2593C2283710C0043E88D /* DisplayWaypointViewController.swift in Sources */,
 				04151830227382AD00A6B0DA /* NotificationExt.swift in Sources */,
 				04151832227391BF00A6B0DA /* GetStartedViewController.swift in Sources */,
 				0415183622739EE100A6B0DA /* TripDetailedViewController.swift in Sources */,

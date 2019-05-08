@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import GooglePlaces
 import GoogleMaps
+import CoreData
 
 class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
@@ -17,6 +18,9 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
     var placesClient: GMSPlacesClient!
     private let locationManager = CLLocationManager()
+    
+    var managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    var mainTrip: Trips?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -77,8 +81,13 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func goBackFromSave() {
-        // TODO:
-        // save contents of way point
+        print("saving this coordinate: \(mapView.annotations[0].coordinate)")
+        
+        // new waypoint entity
+        let wayPoint = WayPoints(context: managedContext)
+        wayPoint.name = "currentplace"
+        wayPoint.lat = 322354634567222
+        wayPoint.long = 332345436
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -97,6 +106,7 @@ extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegat
         // remove all annotations so there's only 1 current one on the map at all times
         mapView.removeAnnotations(mapView.annotations)
         
+        // add the annotation
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: place.coordinate, span: span)
         mapView.setRegion(region, animated: true)
@@ -106,6 +116,9 @@ extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegat
         annotation.title = place.name
         annotation.subtitle = place.formattedAddress
         mapView.addAnnotation(annotation)
+        
+        // save this waypoint in core data
+        
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

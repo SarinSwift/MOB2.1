@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class TripDetailedViewController: UIViewController {
+    
+    var tripName = ""
+//    var tripWaypoints = [NSManagedObject]()
+    // dummy data
+    var tripWaypoints = ["first way point", "second way point"]
 
+    @IBOutlet weak var tripNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavBar()
+        self.tripNameLabel.text = tripName
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setNavBar() {
@@ -38,10 +48,30 @@ class TripDetailedViewController: UIViewController {
     }
     
     func navigateToAddWaypointVC() {
-        // seque to way point
+        // segue to way point
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addWayPointVC = storyboard.instantiateViewController(withIdentifier: "addWayPointID") as! AddWayPointViewController
         addWayPointVC.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        // setting the main trip we just selected here so we can save way points in this specific trip
+//        addWayPointVC.mainTrip =
+        
         self.navigationController?.pushViewController(addWayPointVC, animated: true)
+    }
+}
+
+extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tripWaypoints.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripDetailCellId", for: indexPath)
+        cell.textLabel?.text = tripWaypoints[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: bring to map view controller to display the way point
+        
     }
 }

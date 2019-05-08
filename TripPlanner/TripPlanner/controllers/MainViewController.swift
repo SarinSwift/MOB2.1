@@ -74,6 +74,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         // If this trip has way points then go to tripDetailScreen
         let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
         let tripDetail = storyboard1.instantiateViewController(withIdentifier: "tripDetailedID") as! TripDetailedViewController
+        tripDetail.tripName = tripNames[indexPath.row].value(forKey: "name") as! String 
         self.navigationController?.pushViewController(tripDetail, animated: true)
 
         

@@ -157,6 +157,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfN-4K-CLJ">
                                 <rect key="frame" x="0.0" y="207" width="375" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDetailCellId" id="it9-Tc-Hpm">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="it9-Tc-Hpm" id="XRT-78-zmU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="PfN-4K-CLJ" id="lJe-gJ-zmY"/>
+                        <outlet property="tripNameLabel" destination="roh-2T-aee" id="Wfi-Zx-z8W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqc-GX-47O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,6 +231,35 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2342" y="1039"/>
+        </scene>
+        <!--Display Waypoint View Controller-->
+        <scene sceneID="KgF-4w-3qM">
+            <objects>
+                <viewController storyboardIdentifier="displayWaypointId" id="sG3-gF-rPI" customClass="DisplayWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3PE-QD-dnC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v3r-uF-3Eu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="v3r-uF-3Eu" secondAttribute="bottom" id="CSl-7B-1Xl"/>
+                            <constraint firstItem="v3r-uF-3Eu" firstAttribute="top" secondItem="VXW-IK-9Ze" secondAttribute="top" id="SSU-gl-R2L"/>
+                            <constraint firstItem="v3r-uF-3Eu" firstAttribute="leading" secondItem="VXW-IK-9Ze" secondAttribute="leading" id="ciG-hy-QpK"/>
+                            <constraint firstItem="VXW-IK-9Ze" firstAttribute="trailing" secondItem="v3r-uF-3Eu" secondAttribute="trailing" id="jIG-8J-tko"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VXW-IK-9Ze"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="v3r-uF-3Eu" id="14U-aq-TL0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCS-ay-jhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3228" y="1039"/>
         </scene>
         <!--Add Trip-->
         <scene sceneID="gXE-sW-6WY">
