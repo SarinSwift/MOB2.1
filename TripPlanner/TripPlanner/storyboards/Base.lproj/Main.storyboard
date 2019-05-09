@@ -246,7 +246,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="v3r-uF-3Eu" secondAttribute="bottom" id="CSl-7B-1Xl"/>
+                            <constraint firstAttribute="bottom" secondItem="v3r-uF-3Eu" secondAttribute="bottom" id="CSl-7B-1Xl"/>
                             <constraint firstItem="v3r-uF-3Eu" firstAttribute="top" secondItem="VXW-IK-9Ze" secondAttribute="top" id="SSU-gl-R2L"/>
                             <constraint firstItem="v3r-uF-3Eu" firstAttribute="leading" secondItem="VXW-IK-9Ze" secondAttribute="leading" id="ciG-hy-QpK"/>
                             <constraint firstItem="VXW-IK-9Ze" firstAttribute="trailing" secondItem="v3r-uF-3Eu" secondAttribute="trailing" id="jIG-8J-tko"/>

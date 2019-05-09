@@ -68,17 +68,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let context = CoreDataManager.context
-        
         // If this trip has way points then go to tripDetailScreen
         let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
         let tripDetail = storyboard1.instantiateViewController(withIdentifier: "tripDetailedID") as! TripDetailedViewController
-        tripDetail.tripName = tripNames[indexPath.row].value(forKey: "name") as! String 
+        tripDetail.mainTrip = tripNames[indexPath.row]
         self.navigationController?.pushViewController(tripDetail, animated: true)
 
         
-        // If No way points, Show a page to add waypoints
+        // TODO: If No way points, Show a page to add waypoints
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
 //        self.navigationController?.pushViewController(singleTripDetailToAdd, animated: true)

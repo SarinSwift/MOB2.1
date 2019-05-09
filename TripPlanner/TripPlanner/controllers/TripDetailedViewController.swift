@@ -11,8 +11,9 @@ import CoreData
 
 class TripDetailedViewController: UIViewController {
     
-    var tripName = ""
-//    var tripWaypoints = [NSManagedObject]()
+    var mainTrip: NSManagedObject?
+    
+    // TODO: instead, we should do mainTrip.value(forKey: "waypoints") which is a mutableSet already
     // dummy data
     var tripWaypoints = ["first way point", "second way point"]
 
@@ -23,7 +24,7 @@ class TripDetailedViewController: UIViewController {
         super.viewDidLoad()
 
         setNavBar()
-        self.tripNameLabel.text = tripName
+        self.tripNameLabel.text = mainTrip?.value(forKey: "name") as? String
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -71,7 +72,12 @@ extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: bring to map view controller to display the way point
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let displayWaypointVC = storyboard.instantiateViewController(withIdentifier: "displayWaypointId") as! DisplayWaypointViewController
+        displayWaypointVC.title = mainTrip?.value(forKey: "name") as? String
+        // TODO: display the saved way point
+        self.navigationController?.pushViewController(displayWaypointVC, animated: true)
+
     }
 }
