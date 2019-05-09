@@ -16,11 +16,9 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
     
+    var mainTrip: Trips?
     var placesClient: GMSPlacesClient!
     private let locationManager = CLLocationManager()
-    
-    var managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    var mainTrip: Trips?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -84,22 +82,27 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
         print("saving this coordinate: \(mapView.annotations[0].coordinate)")
         
         // new waypoint entity
-        let wayPoint = WayPoints(context: managedContext)
-        wayPoint.name = "currentplace"
-        wayPoint.lat = 322354634567222
-        wayPoint.long = 332345436
+        let waypoint = WayPoints(context: CoreDataManager.context)
+        
+        // dummy data
+        waypoint.name = "currentplace"
+        waypoint.lat = 322354634567222
+        waypoint.long = 332345436
+        
+        // add to trip waypoints set
+        mainTrip?.addToWaypoint(waypoint)
+        CoreDataManager.saveTrip()
         
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Map view methods
 }
 
 extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        print("Place name: \(place.name)")
+        print("Place name: \(String(describing: place.name))")
         print("Place address: \(String(describing: place.formattedAddress))")
         print("Place coordinates: \(place.coordinate)")
         

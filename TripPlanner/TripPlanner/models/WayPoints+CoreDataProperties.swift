@@ -2,7 +2,7 @@
 //  WayPoints+CoreDataProperties.swift
 //  TripPlanner
 //
-//  Created by Sarin Swift on 4/26/19.
+//  Created by Sarin Swift on 5/9/19.
 //  Copyright © 2019 sarinswift. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension WayPoints {
         return NSFetchRequest<WayPoints>(entityName: "WayPoints")
     }
 
-    @NSManaged public var lat: NSNumber?
-    @NSManaged public var long: NSNumber?
+    @NSManaged public var lat: Double
+    @NSManaged public var long: Double
     @NSManaged public var name: String?
-    @NSManaged public var relationship: Trips?
+    @NSManaged public var trip: Trips?
 
 }

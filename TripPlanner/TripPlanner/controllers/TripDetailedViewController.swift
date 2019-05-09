@@ -11,11 +11,8 @@ import CoreData
 
 class TripDetailedViewController: UIViewController {
     
-    var mainTrip: NSManagedObject?
-    
-    // TODO: instead, we should do mainTrip.value(forKey: "waypoints") which is a mutableSet already
-    // dummy data
-    var tripWaypoints = ["first way point", "second way point"]
+    var mainTrip: Trips?
+    var allWaypointsInThisTrip: [NSMutableOrderedSet]?
 
     @IBOutlet weak var tripNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +24,15 @@ class TripDetailedViewController: UIViewController {
         self.tripNameLabel.text = mainTrip?.value(forKey: "name") as? String
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("view will appear: \(mainTrip?.waypoint)")
+        
+        // fetch from coredata
+        let waypointsArr = mainTrip?.waypoint as? [NSMutableOrderedSet]
+        allWaypointsInThisTrip = waypointsArr
     }
     
     func setNavBar() {
@@ -52,9 +58,9 @@ class TripDetailedViewController: UIViewController {
         // segue to way point
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addWayPointVC = storyboard.instantiateViewController(withIdentifier: "addWayPointID") as! AddWayPointViewController
+        addWayPointVC.mainTrip = self.mainTrip
         addWayPointVC.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         // setting the main trip we just selected here so we can save way points in this specific trip
-//        addWayPointVC.mainTrip =
         
         self.navigationController?.pushViewController(addWayPointVC, animated: true)
     }
@@ -62,12 +68,13 @@ class TripDetailedViewController: UIViewController {
 
 extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripWaypoints.count
+        return mainTrip?.waypoint?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let singleWaypoint = mainTrip?.waypoint?[indexPath.row] as? WayPoints
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDetailCellId", for: indexPath)
-        cell.textLabel?.text = tripWaypoints[indexPath.row]
+        cell.textLabel?.text = String(format:"%f", singleWaypoint!.long)
         return cell
     }
     
