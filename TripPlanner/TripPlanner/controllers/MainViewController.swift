@@ -69,15 +69,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // If this trip has way points then go to tripDetailScreen
-        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
-        let tripDetail = storyboard1.instantiateViewController(withIdentifier: "tripDetailedID") as! TripDetailedViewController
-        tripDetail.mainTrip = tripNames[indexPath.row] as? Trips
-        self.navigationController?.pushViewController(tripDetail, animated: true)
-
+        let theTrip = tripNames[indexPath.row] as? Trips
+        if theTrip?.waypoint?.count != 0 {
+            print("has waypoints")
+            let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+            let tripDetail = storyboard1.instantiateViewController(withIdentifier: "tripDetailedID") as! TripDetailedViewController
+            tripDetail.mainTrip = tripNames[indexPath.row] as? Trips
+            self.navigationController?.pushViewController(tripDetail, animated: true)
+            
+        } else {
+            print("doesn't have waypoints")
+            // TODO: If No way points, Show a page to add waypoints
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
+            self.navigationController?.pushViewController(singleTripDetailToAdd, animated: true)
+        }
         
-        // TODO: If No way points, Show a page to add waypoints
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
-//        self.navigationController?.pushViewController(singleTripDetailToAdd, animated: true)
     }
 }

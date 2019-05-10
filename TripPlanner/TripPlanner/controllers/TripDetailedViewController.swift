@@ -12,7 +12,7 @@ import CoreData
 class TripDetailedViewController: UIViewController {
     
     var mainTrip: Trips?
-    var allWaypointsInThisTrip: [NSMutableOrderedSet]?
+    var allWaypointsInThisTrip: NSMutableOrderedSet?
 
     @IBOutlet weak var tripNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -28,10 +28,11 @@ class TripDetailedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("view will appear: \(mainTrip?.waypoint)")
+        print("view will appear: \(String(describing: mainTrip?.waypoint))")
+        tableView.reloadData()
         
         // fetch from coredata
-        let waypointsArr = mainTrip?.waypoint as? [NSMutableOrderedSet]
+        let waypointsArr = mainTrip?.waypoint
         allWaypointsInThisTrip = waypointsArr
     }
     
@@ -74,7 +75,7 @@ extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let singleWaypoint = mainTrip?.waypoint?[indexPath.row] as? WayPoints
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDetailCellId", for: indexPath)
-        cell.textLabel?.text = String(format:"%f", singleWaypoint!.long)
+        cell.textLabel?.text = singleWaypoint?.name
         return cell
     }
     

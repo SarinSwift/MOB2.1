@@ -18,6 +18,11 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     
     var mainTrip: Trips?
     var placesClient: GMSPlacesClient!
+    
+    var placeName: String = ""
+    var placeLat: Double = 0
+    var placeLong: Double = 0
+    
     private let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
@@ -83,11 +88,9 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
         
         // new waypoint entity
         let waypoint = WayPoints(context: CoreDataManager.context)
-        
-        // dummy data
-        waypoint.name = "currentplace"
-        waypoint.lat = 322354634567222
-        waypoint.long = 332345436
+        waypoint.name = placeName
+        waypoint.lat = placeLat
+        waypoint.long = placeLong
         
         // add to trip waypoints set
         mainTrip?.addToWaypoint(waypoint)
@@ -106,6 +109,10 @@ extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegat
         print("Place address: \(String(describing: place.formattedAddress))")
         print("Place coordinates: \(place.coordinate)")
         
+        placeName = place.name!
+        placeLat = place.coordinate.latitude
+        placeLong = place.coordinate.longitude
+        
         // remove all annotations so there's only 1 current one on the map at all times
         mapView.removeAnnotations(mapView.annotations)
         
@@ -119,9 +126,6 @@ extension AddWayPointViewController: GMSAutocompleteResultsViewControllerDelegat
         annotation.title = place.name
         annotation.subtitle = place.formattedAddress
         mapView.addAnnotation(annotation)
-        
-        // save this waypoint in core data
-        
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
