@@ -79,7 +79,7 @@
         <!--Single Trip Name-->
         <scene sceneID="xWT-CJ-nc4">
             <objects>
-                <viewController storyboardIdentifier="singleDetailedID" id="RgV-H3-Wie" customClass="GetStartedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="singleDetailedID" storyboardIdentifier="singleDetailedID" id="RgV-H3-Wie" customClass="GetStartedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vom-vP-2SE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
         <!--Trip Detailed View Controller-->
         <scene sceneID="w7d-Br-vB9">
             <objects>
-                <viewController storyboardIdentifier="tripDetailedID" id="BYv-6v-Qyf" customClass="TripDetailedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="tripDetailedID" storyboardIdentifier="tripDetailedID" id="BYv-6v-Qyf" customClass="TripDetailedViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ugH-FT-Vgk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

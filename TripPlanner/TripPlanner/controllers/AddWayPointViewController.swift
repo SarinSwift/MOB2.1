@@ -100,7 +100,19 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
             mainTrip?.addToWaypoint(waypoint)
             CoreDataManager.saveTrip()
         }
-        self.navigationController?.popViewController(animated: true)
+        
+        // should not return back to 'getStartedVC' if they had added a real waypoint!
+        if let controllersOnNavStack = self.navigationController?.viewControllers {
+            let n = controllersOnNavStack.count
+            if controllersOnNavStack[n-2].restorationIdentifier != "singleDetailedID" || mapView.annotations.count == 0 {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                // pop 2 times
+                print("is trueee and pop 2 times")
+                let popTo = self.navigationController?.viewControllers[n-3]
+                self.navigationController?.popToViewController(popTo!, animated: true)
+            }
+        }
     }
     
 }
