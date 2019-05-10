@@ -10,6 +10,8 @@ import UIKit
 
 class GetStartedViewController: UIViewController {
 
+    var mainTrip: Trips?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +21,9 @@ class GetStartedViewController: UIViewController {
         // seque to way point
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addWayPointVC = storyboard.instantiateViewController(withIdentifier: "addWayPointID") as! AddWayPointViewController
+        addWayPointVC.mainTrip = self.mainTrip
         addWayPointVC.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(addWayPointVC, animated: true)
+        
     }
 }

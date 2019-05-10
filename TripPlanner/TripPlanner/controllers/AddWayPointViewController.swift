@@ -84,18 +84,22 @@ class AddWayPointViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func goBackFromSave() {
-        print("saving this coordinate: \(mapView.annotations[0].coordinate)")
+        print("check if mapview's annotation array is nil: \(mapView.annotations.count)")
         
-        // new waypoint entity
-        let waypoint = WayPoints(context: CoreDataManager.context)
-        waypoint.name = placeName
-        waypoint.lat = placeLat
-        waypoint.long = placeLong
-        
-        // add to trip waypoints set
-        mainTrip?.addToWaypoint(waypoint)
-        CoreDataManager.saveTrip()
-        
+        if mapView.annotations.count == 0 {
+            print("Could not determine location on map. No annotations saved")
+        } else {
+            print("saving this coordinate: \(mapView.annotations[0].coordinate)")
+            // new waypoint entity
+            let waypoint = WayPoints(context: CoreDataManager.context)
+            waypoint.name = placeName
+            waypoint.lat = placeLat
+            waypoint.long = placeLong
+            
+            // add to trip waypoints set
+            mainTrip?.addToWaypoint(waypoint)
+            CoreDataManager.saveTrip()
+        }
         self.navigationController?.popViewController(animated: true)
     }
     

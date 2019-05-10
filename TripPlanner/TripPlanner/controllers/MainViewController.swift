@@ -82,6 +82,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             // TODO: If No way points, Show a page to add waypoints
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
+            singleTripDetailToAdd.title = theTrip?.name
+            singleTripDetailToAdd.mainTrip = tripNames[indexPath.row] as? Trips
             self.navigationController?.pushViewController(singleTripDetailToAdd, animated: true)
         }
         
