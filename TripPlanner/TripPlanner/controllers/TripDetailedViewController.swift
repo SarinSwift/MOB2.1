@@ -84,7 +84,10 @@ extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let displayWaypointVC = storyboard.instantiateViewController(withIdentifier: "displayWaypointId") as! DisplayWaypointViewController
         displayWaypointVC.title = mainTrip?.value(forKey: "name") as? String
-        // TODO: display the saved way point
+        let singleWaypoint = mainTrip?.waypoint?[indexPath.row] as? WayPoints
+        displayWaypointVC.lat = singleWaypoint?.lat
+        displayWaypointVC.lng = singleWaypoint?.long
+        displayWaypointVC.name = singleWaypoint?.name
         self.navigationController?.pushViewController(displayWaypointVC, animated: true)
 
     }
