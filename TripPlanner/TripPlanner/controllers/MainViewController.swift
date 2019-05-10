@@ -79,7 +79,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             print("doesn't have waypoints")
-            // TODO: If No way points, Show a page to add waypoints
+            // No way points, Show a page to add waypoints
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let singleTripDetailToAdd = storyboard.instantiateViewController(withIdentifier: "singleDetailedID") as! GetStartedViewController
             singleTripDetailToAdd.title = theTrip?.name

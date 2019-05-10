@@ -61,7 +61,6 @@ class TripDetailedViewController: UIViewController {
         let addWayPointVC = storyboard.instantiateViewController(withIdentifier: "addWayPointID") as! AddWayPointViewController
         addWayPointVC.mainTrip = self.mainTrip
         addWayPointVC.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
-        // setting the main trip we just selected here so we can save way points in this specific trip
         
         self.navigationController?.pushViewController(addWayPointVC, animated: true)
     }
@@ -90,5 +89,14 @@ extension TripDetailedViewController: UITableViewDelegate, UITableViewDataSource
         displayWaypointVC.name = singleWaypoint?.name
         self.navigationController?.pushViewController(displayWaypointVC, animated: true)
 
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let singleWaypoint = mainTrip?.waypoint?[indexPath.row] as? WayPoints
+        if editingStyle == .delete {
+            CoreDataManager.context.delete(singleWaypoint!)
+            CoreDataManager.saveTrip()
+            tableView.reloadData()
+        }
     }
 }
