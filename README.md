@@ -14,7 +14,9 @@ Contents are structured using xml where the root is always either an array or a 
 - edit from the plist file  
 - Change keys and values
 
-**Reading values from plist** 
+**Reading values from plist**  
+[Great resource](https://learnappmaking.com/plist-property-list-swift-how-to/)
+
 ```
 var format = PropertyListSerialization.PropertyListFormat.xml
 var data: [String: AnyObject] = [:]
