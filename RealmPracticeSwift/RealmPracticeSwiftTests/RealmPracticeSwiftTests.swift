@@ -51,11 +51,6 @@ class RealmPracticeSwiftTests: XCTestCase {
             let hamletBook = bookStore.createBook("Hamlet", author: "William", year: 1599)
             bookStore.saveBook(hamletBook)
             
-            
-            //When updating the author to William Shakespeare
-            
-            //...
-            
             try bookStore.updateBooks("author", currentValue: "William", updatedValue: "William Shakespear")
             
             //Then we find it again and make sure the author's name matches the new value
@@ -74,8 +69,20 @@ class RealmPracticeSwiftTests: XCTestCase {
     }
     
     func testDelete() {
+        // creating the book
+        let book = bookStore.createBook("Interstellar", author: "Someone", year: 2014)
+        bookStore.saveBook(book)
         
+        // delete the book
+        do {
+            try bookStore.deleteBook(book)
+        } catch {
+            print("error trying to delete book")
+        }
         
+        // assert the  book is nil
+        let foundBooks = bookStore.findBooksByTitle("Interstellar")
+        XCTAssertNil(foundBooks.first)
     }
 
 

@@ -58,6 +58,9 @@ class BookStore {
     }
     
     public func deleteBook(_ book: Book) throws {
-        realm?.delete(book)
+        try! realm?.write {
+            realm?.delete(book)
+        }
+        
     }
 }
